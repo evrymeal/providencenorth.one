@@ -145,7 +145,12 @@ p{margin:0}
   font-size:1.875rem;font-weight:700;line-height:.98;text-transform:uppercase;
   color:var(--ivory);white-space:nowrap}
 .brand-name .ln1{letter-spacing:.04em}
-.brand-name .ln2{letter-spacing:var(--track)}
+/* Task 280 — weight split in the wordmark: "Providence" is the bold line, "North"
+   is set regular. Both weights are real rather than synthesised: the self-hosted
+   Manrope file is a variable font (wght 200..800) and the engine instantiates the
+   axis from the declared face, measured at +8.7px of advance width on the same
+   string at 700 vs 400 (t280/metrics-before.json, `probe`). */
+.brand-name .ln2{font-weight:400;letter-spacing:var(--track)}
 .brand-sub{font-size:.625rem;font-weight:600;letter-spacing:.15em;line-height:1;
   text-transform:uppercase;color:var(--muted)}
 /* 1024-1279px is the tight band: the nav is on screen and shares the row with the
