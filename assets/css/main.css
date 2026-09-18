@@ -126,15 +126,19 @@ p{margin:0}
 .hdr{position:sticky;top:0;z-index:60;background:rgba(13,12,10,.92);
   -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line-2)}
-.hdr-in{display:flex;align-items:center;gap:1.25rem;height:76px}
+.hdr-in{display:flex;align-items:center;gap:1.25rem;height:96px}
+@media(max-width:520px){ .hdr-in{height:80px} }
 .brand{display:flex;align-items:center;gap:.85rem;flex:0 0 auto;padding-right:.5rem}
-.brand-mark{width:44px;height:44px;flex:0 0 auto}
+/* The mark is Kevin's supplied Providence North logo artwork, drawn larger than the
+   old 40px placeholder so the star, ridge line and wordmark all stay readable. */
+.brand-mark{width:72px;height:72px;flex:0 0 auto;border-radius:4px;
+  box-shadow:0 0 0 1px rgba(229,169,60,.22)}
 .brand-txt{display:flex;flex-direction:column;line-height:1.15}
 .brand-name{font-family:var(--font-body);font-size:.8125rem;font-weight:700;
   letter-spacing:var(--track);text-transform:uppercase;color:var(--ivory);white-space:nowrap}
 .brand-sub{font-size:.625rem;font-weight:600;letter-spacing:.15em;
   text-transform:uppercase;color:var(--muted)}
-@media(max-width:520px){ .brand-sub{display:none} .brand-name{font-size:.75rem;letter-spacing:.12em} .brand-mark{width:38px;height:38px} }
+@media(max-width:520px){ .brand-sub{display:none} .brand-name{font-size:.75rem;letter-spacing:.12em} .brand-mark{width:56px;height:56px} }
 .nav{margin-left:auto;display:none;align-items:center;gap:2rem}
 .nav a{font-size:.6875rem;font-weight:600;letter-spacing:var(--track);
   text-transform:uppercase;color:var(--muted);padding:.68rem 0;
@@ -143,11 +147,15 @@ p{margin:0}
 .nav a[aria-current="page"]{color:var(--gold);border-bottom-color:var(--gold)}
 .hdr-cta{display:none;margin-left:2.25rem}
 @media(min-width:1024px){ .nav{display:flex} .hdr-cta{display:inline-flex} }
+/* 16px of padding all round keeps the tap target at 44px+ on a phone. */
 .burger{margin-left:auto;display:inline-flex;flex-direction:column;gap:5px;
-  background:none;border:0;padding:.6rem;cursor:pointer}
+  background:none;border:0;padding:1rem;min-width:44px;min-height:44px;
+  align-items:center;justify-content:center;border-radius:4px;cursor:pointer}
+.burger:hover{background:rgba(229,169,60,.10)}
 .burger i{display:block;width:22px;height:1px;background:var(--ivory)}
 @media(min-width:1024px){ .burger{display:none} }
-.mnav{display:none;border-top:1px solid var(--line-2);background:var(--obsidian)}
+.mnav{display:none;border-top:1px solid var(--line-2);background:var(--obsidian);
+  padding:0 var(--gut) calc(.5rem + env(safe-area-inset-bottom,0px))}
 .mnav.open{display:block}
 .mnav a{display:block;padding:1rem 0;border-bottom:1px solid var(--line);
   font-size:.75rem;font-weight:600;letter-spacing:var(--track);text-transform:uppercase;color:var(--muted)}
@@ -158,7 +166,10 @@ p{margin:0}
   border-bottom:1px solid var(--line-2)}
 .hero-bg{position:absolute;inset:0;z-index:-2}
 .hero-bg picture{position:absolute;inset:0;display:block}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+/* The banner is a multi-peak ridge with the top half left as open sky. The framing
+   is biased upward so the range sits along the lower third of the hero and the
+   headline, subhead and pill all fall on sky rather than on the silhouette. */
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 28%}
 .hero-bg::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(13,12,10,.90) 0%,rgba(13,12,10,.62) 10%,rgba(13,12,10,.30) 26%,rgba(13,12,10,.22) 50%,rgba(13,12,10,.42) 72%,rgba(13,12,10,.88) 90%,var(--obsidian) 100%)}
 .hero-scrim{position:absolute;inset:0;z-index:-1;
@@ -257,10 +268,15 @@ p{margin:0}
 .ftr a,.ftr span.f{font-size:.875rem;color:var(--muted);transition:color .18s ease}
 .ftr a:hover{color:var(--champagne)}
 .ftr-brand{display:flex;align-items:center;gap:.85rem;margin-bottom:1.1rem}
-.ftr-brand img{width:44px;height:44px;object-fit:contain}
+.ftr-brand img{width:56px;height:56px;object-fit:contain}
 .ftr-brand .n{font-size:.8125rem;font-weight:700;letter-spacing:var(--track);
   text-transform:uppercase;color:var(--ivory)}
 .legal{margin-top:3rem;padding-top:1.75rem;border-top:1px solid var(--line)}
+.legal p+p{margin-top:.9rem}
+.legal .small{max-width:104ch}
+.legal a{color:var(--gold);border-bottom:1px solid var(--line-gold);transition:color .18s ease,border-color .18s ease}
+.legal a:hover{color:var(--champagne);border-color:var(--gold)}
+.legal strong{color:var(--bone);font-weight:700}
 .copy{margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:.75rem;justify-content:space-between}
 
 /* ---------- misc ---------- */

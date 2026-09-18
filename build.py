@@ -15,7 +15,7 @@ OUT    = os.path.dirname(os.path.abspath(__file__))
 _css_path = os.path.join(OUT, "assets", "css", "main.css")
 CSS_V = hashlib.sha256(open(_css_path, "rb").read()).hexdigest()[:8]
 
-NAV = [("index.html","Overview"),("portfolio.html","Portfolio"),
+NAV = [("index.html","Overview"),("portfolio.html","Businesses"),
        ("governance.html","Governance"),("mission.html","Mission"),
        ("contact.html","Contact")]
 
@@ -85,10 +85,10 @@ def header(active):
     return f'''<header class="hdr">
   <div class="wrap hdr-in">
     <a class="brand" href="/" aria-label="Providence North LLC, home">
-      <img class="brand-mark" src="/assets/img/brand-mark@2x.png" alt="" width="40" height="40">
+      <img class="brand-mark" src="/assets/img/brand-mark@2x.png" alt="" width="72" height="72">
       <span class="brand-txt">
         <span class="brand-name">Providence North</span>
-        <span class="brand-sub">Holdings Group</span>
+        <span class="brand-sub">LLC</span>
       </span>
     </a>
     <nav class="nav" aria-label="Primary">{links}</nav>
@@ -105,13 +105,14 @@ def footer():
     <div class="ftr-grid">
       <div>
         <div class="ftr-brand">
-          <img src="/assets/img/brand-mark@2x.png" alt="" width="44" height="44">
+          <img src="/assets/img/brand-mark@2x.png" alt="Providence North LLC" width="64" height="64">
           <span class="n">Providence<br>North LLC</span>
         </div>
-        <p class="body" style="max-width:34ch">A private holding company. Long horizon stewardship of two operating businesses in faith driven commerce and health media.</p>
+        <p class="body" style="max-width:34ch">A private holding company. Long horizon stewardship of two lines of business in faith driven commerce and health media.</p>
       </div>
       <div>
-        <h5>Portfolio</h5>
+        <h5>Lines of Business</h5>
+        <p class="small" style="margin:.35rem 0 .6rem">Within Providence North LLC. Unregistered trade names.</p>
         <ul>
           <li><a href="/portfolio.html#faithful-business">The Faithful Business</a></li>
           <li><a href="/portfolio.html#science-of-wellness">The Science of Wellness</a></li>
@@ -123,7 +124,8 @@ def footer():
         <h5>Company</h5>
         <ul>
           <li><a href="/contact.html">Partner Inquiry</a></li>
-          <li><a href="/governance.html#disclosure">Disclosures</a></li>
+          <li><a href="/legal.html">Legal &amp; Disclosures</a></li>
+          <li><a href="/governance.html#disclosure">Regulatory Disclosure</a></li>
           <li><a href="/contact.html">Registered Office</a></li>
         </ul>
       </div>
@@ -137,7 +139,9 @@ def footer():
       </div>
     </div>
     <div class="legal">
-      <p class="small">Providence North LLC is a Wyoming limited liability company. This website is published for general information about the company and the businesses it operates. Nothing on this site is an offer to sell, or a solicitation of an offer to buy, any security, and nothing on this site is investment, legal, tax or medical advice. Providence North LLC is not a registered broker dealer or investment adviser. Investments involve risk. Advertising and directory listing services provided by The Faithful Business are not investment advice, and both parties and their counsel carry out their own due diligence. Content published by The Science of Wellness is educational and is not medical advice.</p>
+      <p class="small">Providence North LLC is a Wyoming limited liability company. The Faithful Business and The Science of Wellness are lines of business of Providence North LLC, operated under unregistered trade names. They are not separate legal entities and are not subsidiaries, funds or investment vehicles.</p>
+      <p class="small"><strong>The Faithful Business is not a broker-dealer or investment advisor.</strong> It is not registered under Section 15(a) of the Securities Exchange Act of 1934 or under the Investment Advisers Act of 1940, and it does not effect securities transactions, hold customer funds or securities, or give investment advice. It operates as a platform under Section 4(b) of the Securities Act of 1933, a status that is conditional on each offering complying with Rule 506 of Regulation D. Listings published on The Faithful Business are advertising by the issuing company, which makes any offer in reliance on exemptions from registration under the Securities Act of 1933, including Section 4(a)(2) and Rule 506(c) of Regulation D, 17 CFR 230.506(c). That rule permits general solicitation and general advertising where every purchaser is a verified accredited investor. <a href="/legal.html">Read the full legal notice</a>.</p>
+      <p class="small">Nothing on this site is an offer to sell, or a solicitation of an offer to buy, any security, and nothing on this site is investment, legal, tax or medical advice. Investments involve risk. Advertising and directory listing services provided by The Faithful Business are not investment advice, and both parties and their counsel carry out their own due diligence. Content published by The Science of Wellness is educational and is not medical advice.</p>
       <div class="copy">
         <span class="small">&copy; {YEAR} Providence North LLC. All rights reserved.</span>
         <span class="small">Registered in Wyoming, United States. Operating from Bangkok, Thailand.</span>
@@ -166,10 +170,10 @@ hero = f'''<section class="hero">
     {star(64)}
     <span class="label label-gold">Private holding company</span>
     <h1 class="display">Enduring value, built on faith, capital and human wellbeing.</h1>
-    <p class="lead">Providence North is a private holding company. It owns and operates The Faithful Business and The Science of Wellness.</p>
+    <p class="lead">Providence North is a private holding company. It operates two lines of business: The Faithful Business and The Science of Wellness.</p>
     <div class="hero-pill"><span class="dot"></span>Wyoming LLC &middot; No outside LP capital</div>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="/portfolio.html">Explore the portfolio</a>
+      <a class="btn btn-primary" href="/portfolio.html">Explore the businesses</a>
       <a class="btn btn-ghost" href="/contact.html">Partner Inquiry</a>
     </div>
   </div>
@@ -179,7 +183,7 @@ hero = f'''<section class="hero">
 
 pillars = f'''<section aria-label="Company at a glance">
   <div class="pillars">
-      <div class="pillar"><div class="label">Operating Companies</div><div class="k">Two</div><div class="v">Faith and health</div><div class="u">Two focused businesses, one standard</div></div>
+      <div class="pillar"><div class="label">Lines of Business</div><div class="k">Two</div><div class="v">Faith and health</div><div class="u">Two focused businesses, one standard</div></div>
       <div class="pillar"><div class="label">Stewardship Horizon</div><div class="k">Generational</div><div class="v">Multi decade alignment</div><div class="u">Built to be held, not flipped</div></div>
       <div class="pillar"><div class="label">Capital Structure</div><div class="k">Privately Funded</div><div class="v">No outside LP capital</div><div class="u">No fund, no outside partners</div></div>
       <div class="pillar"><div class="label">Ethical Mandate</div><div class="k">Biblical and Scientific</div><div class="v">Fiduciary discipline</div><div class="u">Honest books, honest claims</div></div>
@@ -189,15 +193,15 @@ pillars = f'''<section aria-label="Company at a glance">
 
 portfolio = f'''<section class="sec" id="portfolio">
   <div class="wrap">
-    <div class="eyebrow-row"><span class="label label-gold">Portfolio</span></div>
-    <h2 class="h2" style="max-width:24ch">Two operating companies, held with patience.</h2>
-    <p class="lead mt-s" style="max-width:62ch">Each business is managed on its own terms and held to the same rule: say what is true, deliver what is promised, and keep the books clean.</p>
+    <div class="eyebrow-row"><span class="label label-gold">Lines of Business</span><span class="label">Within Providence North LLC &middot; Unregistered Trade Names</span></div>
+    <h2 class="h2" style="max-width:24ch">Two lines of business, held with patience.</h2>
+    <p class="lead mt-s" style="max-width:62ch">Each business is managed on its own terms and held to the same rule: say what is true, deliver what is promised, and keep the books clean. Both are lines of business of Providence North LLC, operated under unregistered trade names.</p>
 
     <div class="grid2 mt-xl">
       <article class="card" id="faithful-business">
         <div class="entity-head">
           <img src="/assets/img/the-faithful-business-logo.png" alt="The Faithful Business logo">
-          <div><span class="label">Operating Company I</span><h3 class="h3 mt-s">The Faithful Business</h3></div>
+          <div><span class="label">Line of Business I</span><h3 class="h3 mt-s">The Faithful Business</h3></div>
         </div>
         <span class="chip">Faith driven commerce &middot; Legal directory</span>
         <p class="body mt-m">A network that connects Christians with businesses, founders and professional advisers who share their convictions. The church verifies the founder, not the entity.</p>
@@ -210,7 +214,7 @@ portfolio = f'''<section class="sec" id="portfolio">
       <article class="card" id="science-of-wellness">
         <div class="entity-head">
           <img src="/assets/img/the-science-of-wellness-logo.png" alt="The Science of Wellness logo">
-          <div><span class="label">Operating Company II</span><h3 class="h3 mt-s">The Science of Wellness</h3></div>
+          <div><span class="label">Line of Business II</span><h3 class="h3 mt-s">The Science of Wellness</h3></div>
         </div>
         <span class="chip chip-mute">Frontier health &middot; Longevity media</span>
         <p class="body mt-m">A digital broadcast brand that translates research on metabolic health, cellular ageing and preventive medicine for a general audience.</p>
@@ -220,6 +224,7 @@ portfolio = f'''<section class="sec" id="portfolio">
         <span class="chip chip-mute mt-l" style="display:inline-flex">Educational content &middot; Not medical advice</span>
       </article>
     </div>
+    <p class="small mt-l">The Faithful Business and The Science of Wellness are lines of business of Providence North LLC, operated under unregistered trade names. Neither is a separate legal entity, a subsidiary, a fund or an investment vehicle.</p>
   </div>
 </section>
 '''
@@ -240,7 +245,7 @@ governance_teaser = f'''<section class="sec" id="governance">
         <span class="triad-no">II</span>
         <span class="label mt-s" style="display:block">Pillar Two</span>
         <h3 class="h3 mt-s">Governance</h3>
-        <p class="body mt-s">Regulatory care and contractual integrity across both operating companies. Statutory conformity and continuous legal oversight underwrite every partnership we form.</p>
+        <p class="body mt-s">Regulatory care and contractual integrity across both lines of business. Statutory conformity and continuous legal oversight underwrite every partnership we form.</p>
       </div>
       <div class="card">
         <span class="triad-no">III</span>
@@ -312,7 +317,7 @@ tfb = f'''<section class="sec" id="faithful-business">
   <div class="wrap">
     <div class="entity-head">
       <img src="/assets/img/the-faithful-business-logo.png" alt="The Faithful Business logo" style="width:88px;height:88px">
-      <div><span class="label label-gold">Operating Company I</span><h2 class="h2 mt-s">The Faithful Business</h2></div>
+      <div><span class="label label-gold">Line of Business I</span><h2 class="h2 mt-s">The Faithful Business</h2></div>
     </div>
     <p class="lead" style="max-width:66ch">A network that connects Christians with businesses, founders and professional advisers who share their convictions. The church verifies the founder, not the entity.</p>
     <div class="grid3 mt-xl">
@@ -340,7 +345,7 @@ sow = f'''<section class="sec" id="science-of-wellness">
   <div class="wrap">
     <div class="entity-head">
       <img src="/assets/img/the-science-of-wellness-logo.png" alt="The Science of Wellness logo" style="width:88px;height:88px">
-      <div><span class="label label-gold">Operating Company II</span><h2 class="h2 mt-s">The Science of Wellness</h2></div>
+      <div><span class="label label-gold">Line of Business II</span><h2 class="h2 mt-s">The Science of Wellness</h2></div>
     </div>
     <p class="lead" style="max-width:66ch">A digital broadcast brand that translates research on metabolic health, cellular ageing and preventive medicine into plain language for a general audience.</p>
     <div class="grid3 mt-xl">
@@ -375,19 +380,20 @@ what_we_are_not = f'''<section class="sec">
           <p style="font-size:1rem;line-height:1.7;color:#0D0C0A">Providence North is not affiliated with any government, sovereign body or state investment vehicle. It is a private company owned by its member, registered in Wyoming and operating from Bangkok, Thailand.</p>
         </div>
       </div>
+      <p class="small mt-m" style="color:#5A5049">The Faithful Business and The Science of Wellness are lines of business of Providence North LLC, operated under unregistered trade names. They are not separate legal entities and are not subsidiaries, funds or investment vehicles.</p>
     </div>
   </div>
 </section>'''
 
-page("portfolio.html","Portfolio | Providence North LLC",
-  "The two operating companies of Providence North LLC: The Faithful Business and The Science of Wellness.",
-  pagehead("Portfolio","Two operating companies, held with patience.",
-    "Each business is managed on its own terms and held to the same rule: say what is true, deliver what is promised, and keep the books clean.")+tfb+sow+what_we_are_not,
+page("portfolio.html","Lines of Business | Providence North LLC",
+  "The two lines of business of Providence North LLC: The Faithful Business and The Science of Wellness, operated under unregistered trade names.",
+  pagehead("Lines of Business within Providence North LLC (Unregistered Trade Names)","Two lines of business, held with patience.",
+    "Each business is managed on its own terms and held to the same rule: say what is true, deliver what is promised, and keep the books clean. Both are lines of business of Providence North LLC, operated under unregistered trade names.")+tfb+sow+what_we_are_not,
   "portfolio.html")
 
 # ================================================================ GOVERNANCE
 gov_body = pagehead("Governance &amp; Standards","How the company is run.",
-  "Providence North holds two operating businesses to one standard of dealing. The standard is written down so that it can be checked.")+f'''
+  "Providence North holds its two lines of business to one standard of dealing. The standard is written down so that it can be checked.")+f'''
 <section class="sec">
   <div class="wrap">
     <div class="grid3">
@@ -402,7 +408,7 @@ gov_body = pagehead("Governance &amp; Standards","How the company is run.",
         <span class="triad-no">II</span>
         <span class="label mt-s" style="display:block">Pillar Two</span>
         <h3 class="h3 mt-s">Governance</h3>
-        <p class="body mt-s">Regulatory care and contractual integrity across both operating companies. Statutory conformity and continuous legal oversight underwrite every partnership we form.</p>
+        <p class="body mt-s">Regulatory care and contractual integrity across both lines of business. Statutory conformity and continuous legal oversight underwrite every partnership we form.</p>
         <p class="body mt-s">In practice: written agreements for every material dealing, counsel retained on retainer, and statutory filings kept current in every jurisdiction where we are registered.</p>
       </div>
       <div class="card">
@@ -439,6 +445,7 @@ gov_body = pagehead("Governance &amp; Standards","How the company is run.",
       <p class="body">Providence North LLC is not a registered broker dealer, investment adviser, fund, or pooled investment vehicle. It does not offer, sell or solicit the purchase of any security, and it does not manage money for third parties.</p>
       <p class="body">Nothing on this website is an offer to sell, or a solicitation of an offer to buy, any security, nor is it investment, legal, tax, accounting or medical advice. Any figures, descriptions or forward looking statements on this site are general in nature and subject to change without notice.</p>
       <p class="body">The Faithful Business operates advertising and directory listing services. Verification of a business or a professional is limited to identity, active church membership and document completeness. Providence North LLC does not evaluate the financial merit, viability or investment potential of any company, does not recommend or give investment advice, and due diligence is carried out by both parties and their counsel.</p>
+      <p class="body"><strong style="color:var(--bone)">The Faithful Business is not a broker dealer or an investment adviser.</strong> It is not registered under Section 15(a) of the Securities Exchange Act of 1934 or under the Investment Advisers Act of 1940, and it does not effect securities transactions, hold customer funds or securities, or give investment advice. Any offering published on The Faithful Business is made by the issuing company in reliance on exemptions from registration under the Securities Act of 1933, including Section 4(a)(2) and Rule 506(c) of Regulation D, 17 CFR 230.506(c), which permits general solicitation and general advertising where every purchaser is a verified accredited investor. Listings on The Faithful Business are advertising only.</p>
       <p class="body">Content published by The Science of Wellness is educational and is not medical advice, diagnosis or treatment. Viewers should consult a qualified physician about their own health.</p>
       <p class="body">Investments involve risk, including the risk of total loss. Any investment activity described on this site is intended only for accredited investors who qualify in their own jurisdiction.</p>
     </div>
@@ -567,6 +574,53 @@ page("contact.html","Partner Inquiry | Providence North LLC",
   "Contact Providence North LLC. Registered office in Sheridan, Wyoming. Operations in Bangkok, Thailand.",
   contact_body, "contact.html")
 
+# ================================================================ LEGAL
+legal_body = pagehead("Legal &amp; Disclosures","Legal notice.",
+  "Company status, regulatory position and the terms on which this website is published.")+f'''
+<section class="sec">
+  <div class="wrap wrap-narrow">
+    <div class="stack">
+
+      <h2 class="h2">The company</h2>
+      <p class="body">Providence North LLC is a limited liability company registered in the State of Wyoming, United States. Its registered office is 30 N Gould St, STE R, Sheridan, WY 82801, United States, and its operations are conducted from Bangkok, Thailand. The company is privately held by its member and is not affiliated with any government, sovereign body or state investment vehicle.</p>
+
+      <h2 class="h2 mt-xl">Lines of business and trade names</h2>
+      <p class="body">The Faithful Business and The Science of Wellness are lines of business of Providence North LLC, operated under unregistered trade names. They are not separate legal entities. They are not subsidiaries, partnerships, funds, pooled investment vehicles or joint ventures, and they do not have their own directors, officers or members. Obligations arising in either line of business are obligations of Providence North LLC.</p>
+
+      <h2 class="h2 mt-xl">Securities and regulatory position</h2>
+      <p class="body"><strong style="color:var(--bone)">The Faithful Business is not a broker dealer or an investment adviser.</strong> It is not registered under Section 15(a) of the Securities Exchange Act of 1934 or under the Investment Advisers Act of 1940. It does not effect or execute securities transactions, does not hold or custody customer funds or securities, does not negotiate the terms of any transaction between a founder and an investor, and does not give investment advice of any kind.</p>
+      <p class="body">Any offering published on The Faithful Business is made by the issuing company itself, and not by Providence North LLC or by any of its lines of business. Those offerings are made in reliance on exemptions from registration under the Securities Act of 1933, as amended, including Section 4(a)(2) and Rule 506(c) of Regulation D, 17 CFR 230.506(c). Rule 506(c) permits general solicitation and general advertising where every purchaser is a verified accredited investor. Offers made under that rule are securities that are subject to transfer restrictions, and investors must satisfy applicable eligibility and verification requirements in the jurisdiction where they qualify.</p>
+      <p class="body">Providence North LLC is not a registered broker dealer, investment adviser, fund or pooled investment vehicle. It does not offer, sell or solicit the purchase of any security, does not manage money for any third party and does not take outside limited partner capital.</p>
+
+      <h3 class="h3 mt-l">Basis of the platform position</h3>
+      <p class="body">The Faithful Business operates as a platform. Its regulatory position rests on Section 4(b) of the Securities Act of 1933, 15 U.S.C. 77d(b), which was added by Title II of the JOBS Act. That section provides that a person who satisfies its conditions is not required to register as a broker under Section 15(a)(1) of the Securities Exchange Act of 1934 solely because of defined platform activity carried out in connection with an offering made under Rule 506 of Regulation D.</p>
+      <p class="body">The exemption is self-executing. It requires no application, filing or approval by the Securities and Exchange Commission, and no registration. It is also conditional, and it is narrow. It applies only where the offering itself complies with Rule 506; where neither the platform nor any associated person receives compensation in connection with the purchase or sale of a security; and where neither the platform nor any associated person is subject to statutory disqualification under Section 3(a)(39) of the Securities Exchange Act of 1934. If those conditions are not met for a given offering, the platform position does not apply to that offering.</p>
+      <p class="body">Accordingly, The Faithful Business charges a flat subscription fee for advertising and listing services only. It takes no success fee, commission, carried interest, referral fee or other transaction-based compensation from any offering, and no fee that varies with the size of an offering or with whether a transaction closes. It does not negotiate the terms of any transaction, does not handle or hold investor funds or securities, does not sponsor or manage any investment vehicle, and does not give investment advice or recommend any offering. It does not curate, rank, score or selectively promote issuers. A listing appears because the issuer published it.</p>
+      <p class="body">Compliance with Rule 506, including the reasonable steps required to verify that every purchaser is an accredited investor, remains the responsibility of the issuing company making the offering. That verification may be performed through an independent third-party verification service, but the legal burden of it is not assumed by Providence North LLC or by The Faithful Business. Investors are responsible for confirming that they qualify in their own jurisdiction.</p>
+
+      <h2 class="h2 mt-xl">Advertising and listing services</h2>
+      <p class="body">VC Corner is an advertising and listing service. Founders publish a listing describing their own business, and accredited investors subscribe to see those listings and to contact founders directly. A listing is advertising. It is not a recommendation, an endorsement, a valuation or an offer. Providence North LLC does not evaluate the financial merit, viability or investment potential of any company. Due diligence is carried out by both parties and their counsel.</p>
+      <p class="body">The Law Connect is a directory in which attorneys publish a listing for their own practice. The directory is advertising. It is not a curated or recommended panel, it is not a lawyer referral service, and nothing in it is legal advice. Any engagement is between the attorney and the client.</p>
+      <p class="body">Verification of a business, founder or professional is limited to identity, active church membership and document completeness. It is not an endorsement of a business, a product or an investment, and it is not a review of the business itself.</p>
+
+      <h2 class="h2 mt-xl">Health content</h2>
+      <p class="body">Content published by The Science of Wellness is educational and is not medical advice, diagnosis or treatment. It is written for a general audience and is not a substitute for care from a qualified physician. Viewers should consult their own physician before making any change to their health, medication or diet.</p>
+
+      <h2 class="h2 mt-xl">No offer, no advice</h2>
+      <p class="body">Nothing on this website is an offer to sell, or a solicitation of an offer to buy, any security, nor is anything on this website investment, legal, tax, accounting or medical advice. Any figures, descriptions, statements of intent or forward looking statements on this site are general in nature, are not commitments and are subject to change without notice. Investments involve risk, including the risk of total loss. Any investment activity referred to on this site is intended only for accredited investors, and each investor must also qualify under the law of their own jurisdiction.</p>
+
+      <h2 class="h2 mt-xl">Contact</h2>
+      <p class="body">Questions about this notice, or about the status of any business named on this site, may be addressed to <a href="mailto:{EMAIL}" style="color:var(--gold)">{EMAIL}</a>.</p>
+
+      <p class="small mt-xl">Last updated {MONTH}. This page is the full legal notice referred to in the footer of every page of this website.</p>
+    </div>
+  </div>
+</section>'''
+
+page("legal.html","Legal & Disclosures | Providence North LLC",
+  "Legal notice for Providence North LLC: company status, lines of business and trade names, securities and regulatory position, advertising services and disclaimers.",
+  legal_body, "legal.html")
+
 # ================================================================ 404
 notfound = f'''<section class="page-head">
   <div class="wrap center">
@@ -594,6 +648,7 @@ urls="".join(f"  <url><loc>{BASE}/{'' if p=='index.html' else p}</loc><lastmod>{
              f"<priority>{'1.0' if p=='index.html' else '0.8'}</priority></url>\n"
              for p,_ in NAV if p!="contact.html")
 urls+=f"  <url><loc>{BASE}/contact.html</loc><lastmod>{today}</lastmod><priority>0.7</priority></url>\n"
+urls+=f"  <url><loc>{BASE}/legal.html</loc><lastmod>{today}</lastmod><priority>0.4</priority></url>\n"
 open(os.path.join(OUT,"sitemap.xml"),"w").write(
   f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
 
