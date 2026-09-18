@@ -87,7 +87,7 @@ def header(active):
     <a class="brand" href="/" aria-label="Providence North LLC, home">
       <img class="brand-mark" src="/assets/img/brand-mark@2x.png" alt="" width="72" height="72">
       <span class="brand-txt">
-        <span class="brand-name">Providence North</span>
+        <span class="brand-name"><span class="ln1">Providence</span><span class="ln2">North</span></span>
         <span class="brand-sub">LLC</span>
       </span>
     </a>

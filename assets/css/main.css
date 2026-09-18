@@ -128,17 +128,33 @@ p{margin:0}
   border-bottom:1px solid var(--line-2)}
 .hdr-in{display:flex;align-items:center;gap:1.25rem;height:96px}
 @media(max-width:520px){ .hdr-in{height:80px} }
-.brand{display:flex;align-items:center;gap:.85rem;flex:0 0 auto;padding-right:.5rem}
+.brand{display:flex;align-items:center;gap:.8rem;flex:0 0 auto;padding-right:.25rem}
 /* The mark is Kevin's supplied Providence North logo artwork, drawn larger than the
    old 40px placeholder so the star, ridge line and wordmark all stay readable. */
 .brand-mark{width:72px;height:72px;flex:0 0 auto;border-radius:4px;
   box-shadow:0 0 0 1px rgba(229,169,60,.22)}
-.brand-txt{display:flex;flex-direction:column;line-height:1.15}
-.brand-name{font-family:var(--font-body);font-size:.8125rem;font-weight:700;
-  letter-spacing:var(--track);text-transform:uppercase;color:var(--ivory);white-space:nowrap}
-.brand-sub{font-size:.625rem;font-weight:600;letter-spacing:.15em;
+/* Two-line wordmark lockup (task 279). The name is set on two stacked lines sized to
+   the mark: 30px x .98 line-height x 2 lines = 58.8px, plus the LLC tag = 71.2px,
+   against a 72px mark. The block therefore fills the header height top to bottom
+   instead of floating small beside the logo.
+   letter-spacing: line 1 carries ten characters so it is tightened; line 2 uses the
+   site's standard --track, which spreads NORTH out until the two lines read as one
+   block rather than a long line over a short one. */
+.brand-txt{display:flex;flex-direction:column;justify-content:center;gap:.15rem}
+.brand-name{display:flex;flex-direction:column;font-family:var(--font-body);
+  font-size:1.875rem;font-weight:700;line-height:.98;text-transform:uppercase;
+  color:var(--ivory);white-space:nowrap}
+.brand-name .ln1{letter-spacing:.04em}
+.brand-name .ln2{letter-spacing:var(--track)}
+.brand-sub{font-size:.625rem;font-weight:600;letter-spacing:.15em;line-height:1;
   text-transform:uppercase;color:var(--muted)}
-@media(max-width:520px){ .brand-sub{display:none} .brand-name{font-size:.75rem;letter-spacing:.12em} .brand-mark{width:56px;height:56px} }
+/* 1024-1279px is the tight band: the nav is on screen and shares the row with the
+   lockup. Measured ceiling at 1024px is a 184px line, so the name runs 27px -> 30px
+   across the band and meets the 28px below it and the 30px above it at both ends. */
+@media(max-width:1023px){ .brand-name{font-size:1.75rem} }
+@media(min-width:1024px) and (max-width:1279px){
+  .brand-name{font-size:clamp(1.6875rem,.935rem + 1.1765vw,1.875rem)} }
+@media(max-width:520px){ .brand-sub{display:none} .brand-mark{width:56px;height:56px} }
 .nav{margin-left:auto;display:none;align-items:center;gap:2rem}
 .nav a{font-size:.6875rem;font-weight:600;letter-spacing:var(--track);
   text-transform:uppercase;color:var(--muted);padding:.68rem 0;
