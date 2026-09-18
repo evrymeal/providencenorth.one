@@ -17,10 +17,9 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="/assets/fonts/bodoni-moda-latin-400_700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/main.css?v=8ae417a6">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Providence North LLC","url":"https://providencenorth.one","logo":"https://providencenorth.one/assets/img/providence-north-logo.png","email":"inquiries@providencenorth.one","address":{"@type":"PostalAddress","streetAddress":"30 N Gould St, STE R","addressLocality":"Sheridan","addressRegion":"WY","postalCode":"82801","addressCountry":"US"},"subOrganization":[{"@type":"Organization","name":"The Faithful Business","url":"https://www.thefaithfulbusiness.com"},{"@type":"Organization","name":"The Science of Wellness"}]}</script>
 </head>
 <body>
@@ -41,7 +40,11 @@
   <nav class="mnav" id="mnav" aria-label="Mobile"><a href="/index.html" aria-current="page">Overview</a><a href="/portfolio.html">Portfolio</a><a href="/governance.html">Governance</a><a href="/mission.html">Mission</a><a href="/contact.html">Contact</a><a href="/contact.html">Partner Inquiry</a></nav>
 </header>
 <section class="hero">
-  <div class="hero-bg"><img src="/assets/img/sky-field.jpg" alt="" role="presentation" fetchpriority="high"></div>
+  <div class="hero-bg"><picture>
+    <source type="image/webp" sizes="100vw" srcset="/assets/img/sky-field-760.webp 760w, /assets/img/sky-field-1280.webp 1280w, /assets/img/sky-field-2400.webp 2400w">
+    <source type="image/jpeg" sizes="100vw" srcset="/assets/img/sky-field-760.jpg 760w, /assets/img/sky-field-1280.jpg 1280w, /assets/img/sky-field-2400.jpg 2400w">
+    <img src="/assets/img/sky-field-1280.jpg" alt="" role="presentation" fetchpriority="high" width="2400" height="1300">
+  </picture></div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="wrap hero-in">
     <svg class="hero-star" width="64" height="64" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="sg64" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#E5A93C"/><stop offset="1" stop-color="#FFF3D6"/></linearGradient></defs><path d="M12 1 L13.7 10.3 L23 12 L13.7 13.7 L12 23 L10.3 13.7 L1 12 L10.3 10.3 Z" fill="url(#sg64)"/></svg>
@@ -51,7 +54,7 @@
     <div class="hero-pill"><span class="dot"></span>Wyoming LLC &middot; No outside LP capital</div>
     <div class="hero-cta">
       <a class="btn btn-primary" href="/portfolio.html">Explore the portfolio</a>
-      <a class="btn btn-ghost" href="/contact.html">Partner inquiry</a>
+      <a class="btn btn-ghost" href="/contact.html">Partner Inquiry</a>
     </div>
   </div>
   <div class="hairline"></div>
@@ -153,7 +156,7 @@
 </section>
 <section class="sec">
   <div class="wrap center">
-    <span class="label label-gold">Partner inquiry</span>
+    <span class="label label-gold">Partner Inquiry</span>
     <h2 class="h2 mt-s" style="max-width:22ch;margin-left:auto;margin-right:auto">Speak with Providence North.</h2>
     <p class="lead mt-s" style="max-width:56ch;margin-left:auto;margin-right:auto">We welcome serious enquiries from partners, suppliers, professional advisers and operators, and from investors who want to understand what we own and how we run it.</p>
     <div class="hero-cta">

@@ -17,10 +17,9 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="/assets/fonts/bodoni-moda-latin-400_700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/main.css?v=8ae417a6">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Providence North LLC","url":"https://providencenorth.one","logo":"https://providencenorth.one/assets/img/providence-north-logo.png","email":"inquiries@providencenorth.one","address":{"@type":"PostalAddress","streetAddress":"30 N Gould St, STE R","addressLocality":"Sheridan","addressRegion":"WY","postalCode":"82801","addressCountry":"US"},"subOrganization":[{"@type":"Organization","name":"The Faithful Business","url":"https://www.thefaithfulbusiness.com"},{"@type":"Organization","name":"The Science of Wellness"}]}</script>
 </head>
 <body>
@@ -69,7 +68,7 @@
             </select></div>
           <div class="field"><label class="label" for="f-msg">Message</label>
             <textarea id="f-msg" name="message" placeholder="Tell us briefly what you need and the timescale."></textarea></div>
-          <button class="btn btn-primary" type="submit">Send inquiry</button>
+          <button class="btn btn-primary" type="submit">Send an inquiry</button>
           <p class="small mt-m">This form opens your own email application with the details filled in, so that nothing is transmitted through this website.</p>
           <div id="sent" style="display:none" class="card mt-m">
             <span class="label label-gold">Ready to send</span>
@@ -107,7 +106,7 @@ document.getElementById('inquiry').addEventListener('submit',function(e){
   var body = 'Name and title: '+g('name')+'\nEmail: '+g('email')+'\nOrganisation: '+g('org')+
              '\nArea of interest: '+g('area')+'\n\n'+g('message')+'\n';
   window.location.href = 'mailto:inquiries@providencenorth.one?subject='+
-    encodeURIComponent('Partner inquiry - '+g('org'))+'&body='+encodeURIComponent(body);
+    encodeURIComponent('Partner Inquiry - '+g('org'))+'&body='+encodeURIComponent(body);
   document.getElementById('sent').style.display='block';
   document.getElementById('sent').scrollIntoView({block:'nearest'});
 });

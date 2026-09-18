@@ -2,13 +2,18 @@
 # Providence North LLC static site generator.
 # Emits the HTML pages from one template so the header/footer never drift.
 # Brand tokens live in assets/css/main.css.
-import os, datetime
+import os, datetime, hashlib
 
 DOMAIN = "providencenorth.one"
 BASE   = f"https://{DOMAIN}"
 EMAIL  = "inquiries@providencenorth.one"
 YEAR   = 2026
 OUT    = os.path.dirname(os.path.abspath(__file__))
+
+# Cache-busting stamp: the stylesheet URL changes whenever the CSS changes, so a
+# returning visitor never gets a stale stylesheet after a deploy.
+_css_path = os.path.join(OUT, "assets", "css", "main.css")
+CSS_V = hashlib.sha256(open(_css_path, "rb").read()).hexdigest()[:8]
 
 NAV = [("index.html","Overview"),("portfolio.html","Portfolio"),
        ("governance.html","Governance"),("mission.html","Mission"),
@@ -63,10 +68,9 @@ def head(page_title, desc, canonical, page_css=""):
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="/assets/fonts/bodoni-moda-latin-400_700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/main.css?v={CSS_V}">
 {page_css}<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Providence North LLC","url":"{BASE}","logo":"{BASE}/assets/img/providence-north-logo.png","email":"{EMAIL}","address":{{"@type":"PostalAddress","streetAddress":"30 N Gould St, STE R","addressLocality":"Sheridan","addressRegion":"WY","postalCode":"82801","addressCountry":"US"}},"subOrganization":[{{"@type":"Organization","name":"The Faithful Business","url":"https://www.thefaithfulbusiness.com"}},{{"@type":"Organization","name":"The Science of Wellness"}}]}}</script>
 </head>
 <body>
@@ -152,7 +156,11 @@ def page(fname, title, desc, body, active, page_css="", extra_js=""):
 
 # ================================================================ INDEX
 hero = f'''<section class="hero">
-  <div class="hero-bg"><img src="/assets/img/sky-field.jpg" alt="" role="presentation" fetchpriority="high"></div>
+  <div class="hero-bg"><picture>
+    <source type="image/webp" sizes="100vw" srcset="/assets/img/sky-field-760.webp 760w, /assets/img/sky-field-1280.webp 1280w, /assets/img/sky-field-2400.webp 2400w">
+    <source type="image/jpeg" sizes="100vw" srcset="/assets/img/sky-field-760.jpg 760w, /assets/img/sky-field-1280.jpg 1280w, /assets/img/sky-field-2400.jpg 2400w">
+    <img src="/assets/img/sky-field-1280.jpg" alt="" role="presentation" fetchpriority="high" width="2400" height="1300">
+  </picture></div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="wrap hero-in">
     {star(64)}
@@ -162,7 +170,7 @@ hero = f'''<section class="hero">
     <div class="hero-pill"><span class="dot"></span>Wyoming LLC &middot; No outside LP capital</div>
     <div class="hero-cta">
       <a class="btn btn-primary" href="/portfolio.html">Explore the portfolio</a>
-      <a class="btn btn-ghost" href="/contact.html">Partner inquiry</a>
+      <a class="btn btn-ghost" href="/contact.html">Partner Inquiry</a>
     </div>
   </div>
   <div class="hairline"></div>
@@ -274,7 +282,7 @@ mission_band = f'''<section class="sec" id="mission">
 
 cta_band = f'''<section class="sec">
   <div class="wrap center">
-    <span class="label label-gold">Partner inquiry</span>
+    <span class="label label-gold">Partner Inquiry</span>
     <h2 class="h2 mt-s" style="max-width:22ch;margin-left:auto;margin-right:auto">Speak with Providence North.</h2>
     <p class="lead mt-s" style="max-width:56ch;margin-left:auto;margin-right:auto">We welcome serious enquiries from partners, suppliers, professional advisers and operators, and from investors who want to understand what we own and how we run it.</p>
     <div class="hero-cta">
@@ -492,7 +500,7 @@ document.getElementById('inquiry').addEventListener('submit',function(e){
   var body = 'Name and title: '+g('name')+'\\nEmail: '+g('email')+'\\nOrganisation: '+g('org')+
              '\\nArea of interest: '+g('area')+'\\n\\n'+g('message')+'\\n';
   window.location.href = 'mailto:inquiries@providencenorth.one?subject='+
-    encodeURIComponent('Partner inquiry - '+g('org'))+'&body='+encodeURIComponent(body);
+    encodeURIComponent('Partner Inquiry - '+g('org'))+'&body='+encodeURIComponent(body);
   document.getElementById('sent').style.display='block';
   document.getElementById('sent').scrollIntoView({block:'nearest'});
 });
@@ -522,7 +530,7 @@ contact_body = pagehead("Partner Inquiry","Speak with Providence North.",
             </select></div>
           <div class="field"><label class="label" for="f-msg">Message</label>
             <textarea id="f-msg" name="message" placeholder="Tell us briefly what you need and the timescale."></textarea></div>
-          <button class="btn btn-primary" type="submit">Send inquiry</button>
+          <button class="btn btn-primary" type="submit">Send an inquiry</button>
           <p class="small mt-m">This form opens your own email application with the details filled in, so that nothing is transmitted through this website.</p>
           <div id="sent" style="display:none" class="card mt-m">
             <span class="label label-gold">Ready to send</span>

@@ -1,3 +1,16 @@
+/* Providence North LLC — self-hosted brand fonts.
+   Bodoni Moda (headlines) + Manrope (body), latin + latin-ext subsets.
+   Sourced from Google Fonts under the SIL Open Font License 1.1.
+   Self-hosted to remove the third-party CDN dependency and the FOUC risk. */
+@font-face{font-family:'Bodoni Moda';font-style:normal;font-weight:400 700;font-display:swap;src:url('/assets/fonts/bodoni-moda-latinext-400_700.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Bodoni Moda';font-style:normal;font-weight:400 700;font-display:swap;src:url('/assets/fonts/bodoni-moda-latin-400_700.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/manrope-latinext-400.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/manrope-latin-400.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url('/assets/fonts/manrope-latinext-400.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url('/assets/fonts/manrope-latin-400.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url('/assets/fonts/manrope-latinext-400.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url('/assets/fonts/manrope-latin-400.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
 /* Providence North LLC — main.css
    Palette and type tokens are taken from the Providence North brand mark
    (gold hour sky over an obsidian ridgeline) and the designer's
@@ -23,7 +36,7 @@
   --ivory:#FBF9F5;
   --bone:#E6E2DE;
   --muted:#A69F91;
-  --dim:#7C7466;
+  --dim:#877E70;
 
   /* Hairlines */
   --line:#231F1B;
@@ -70,10 +83,10 @@ p{margin:0}
   letter-spacing:.15em;text-transform:uppercase;color:var(--dim);
 }
 .label-gold{color:var(--gold)}
-.display{font-size:2.2rem;line-height:1.14;font-weight:500}
-@media(min-width:768px){ .display{font-size:3.4rem} }
-@media(min-width:1200px){ .display{font-size:3.5rem} }
-.h2{font-size:1.85rem;line-height:1.18}
+.display{font-size:2.2rem;line-height:1.14;font-weight:500;text-wrap:balance}
+@media(min-width:768px){ .display{font-size:3.4rem;line-height:1.1} }
+@media(min-width:1200px){ .display{font-size:4rem;line-height:1.08} }
+.h2{font-size:1.85rem;line-height:1.18;text-wrap:balance}
 @media(min-width:768px){ .h2{font-size:2.45rem} }
 @media(min-width:1200px){ .h2{font-size:3rem} }
 .h3{font-size:1.28rem;line-height:1.28;font-weight:600}
@@ -144,11 +157,12 @@ p{margin:0}
 .hero{position:relative;isolation:isolate;overflow:hidden;
   border-bottom:1px solid var(--line-2)}
 .hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg picture{position:absolute;inset:0;display:block}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
 .hero-bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(13,12,10,.96) 0%,rgba(13,12,10,.80) 20%,rgba(13,12,10,.62) 40%,rgba(13,12,10,.58) 60%,rgba(13,12,10,.90) 82%,var(--obsidian) 100%)}
+  background:linear-gradient(180deg,rgba(13,12,10,.90) 0%,rgba(13,12,10,.62) 10%,rgba(13,12,10,.30) 26%,rgba(13,12,10,.22) 50%,rgba(13,12,10,.42) 72%,rgba(13,12,10,.88) 90%,var(--obsidian) 100%)}
 .hero-scrim{position:absolute;inset:0;z-index:-1;
-  background:radial-gradient(ellipse 88% 76% at 50% 46%,rgba(13,12,10,.90) 0%,rgba(13,12,10,.80) 42%,rgba(13,12,10,.42) 76%,rgba(13,12,10,.10) 100%)}
+  background:radial-gradient(ellipse 82% 72% at 50% 42%,rgba(13,12,10,.38) 0%,rgba(13,12,10,.26) 45%,rgba(13,12,10,.08) 74%,rgba(13,12,10,0) 100%)}
 .hero-in{position:relative;padding:2rem 1.25rem 2.5rem;text-align:center}
 @media(min-width:768px){ .hero-in{padding:3.25rem 2rem 3.75rem} }
 .hero-star{width:54px;height:54px;margin:0 auto 1.15rem;display:block;
@@ -156,7 +170,7 @@ p{margin:0}
 .hero h1{margin:1.25rem auto 0;max-width:19ch;color:var(--ivory);
   text-shadow:0 2px 26px rgba(13,12,10,.62)}
 @media(min-width:1024px){ .hero h1{max-width:17ch} }
-.hero .lead{margin:1.25rem auto 0;max-width:52ch;color:var(--bone);
+.hero .lead{margin:1.75rem auto 0;max-width:52ch;color:var(--bone);
   text-shadow:0 1px 18px rgba(13,12,10,.55)}
 .hero-pill{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.2rem;
   padding:.6rem 1.15rem;border:1px solid rgba(229,169,60,.55);
@@ -169,6 +183,14 @@ p{margin:0}
 .hero-in .label{color:var(--champagne);text-shadow:0 1px 12px rgba(13,12,10,.7)}
 .hairline{position:absolute;left:0;right:0;bottom:0;height:1px;
   background:linear-gradient(90deg,transparent,var(--line-gold-strong),transparent)}
+
+/* Below 1280px the hero crop shows a brighter, narrower slice of the artwork and the
+   text stack occupies most of the hero, so the overlay is deepened to hold WCAG AA.
+   Measured worst case behind the glyph boxes: h1 8.2:1, lead 6.3:1, pill 13.6:1. */
+@media(max-width:1279px){
+  .hero-bg::after{background:linear-gradient(180deg,rgba(13,12,10,.90) 0%,rgba(13,12,10,.62) 12%,rgba(13,12,10,.52) 24%,rgba(13,12,10,.48) 50%,rgba(13,12,10,.54) 76%,rgba(13,12,10,.90) 92%,var(--obsidian) 100%)}
+  .hero-scrim{background:radial-gradient(ellipse 82% 72% at 50% 42%,rgba(13,12,10,.62) 0%,rgba(13,12,10,.46) 45%,rgba(13,12,10,.14) 74%,rgba(13,12,10,0) 100%)}
+}
 
 /* ---------- pillars ---------- */
 .pillars{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
