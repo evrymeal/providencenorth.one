@@ -134,7 +134,6 @@ def footer():
         <ul>
           <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
           <li><span class="f">Registered office<br>30 N Gould St, STE R<br>Sheridan, WY 82801<br>United States</span></li>
-          <li><span class="f">Operations<br>Bangkok, Thailand</span></li>
         </ul>
       </div>
     </div>
@@ -144,7 +143,7 @@ def footer():
       <p class="small">Nothing on this site is an offer to sell, or a solicitation of an offer to buy, any security, and nothing on this site is investment, legal, tax or medical advice. Investments involve risk. Advertising and directory listing services provided by The Faithful Business are not investment advice, and both parties and their counsel carry out their own due diligence. Content published by The Science of Wellness is educational and is not medical advice.</p>
       <div class="copy">
         <span class="small">&copy; {YEAR} Providence North LLC. All rights reserved.</span>
-        <span class="small">Registered in Wyoming, United States. Operating from Bangkok, Thailand.</span>
+        <span class="small">Registered in Wyoming, United States.</span>
       </div>
     </div>
   </div>
@@ -377,7 +376,7 @@ what_we_are_not = f'''<section class="sec">
           <p style="font-size:1rem;line-height:1.7;color:#0D0C0A">Providence North is not a fund and does not take outside limited partner capital. It is not a registered broker dealer or investment adviser, and it does not offer securities. Nothing on this website is an offer to sell or a solicitation of an offer to buy any security.</p>
         </div>
         <div>
-          <p style="font-size:1rem;line-height:1.7;color:#0D0C0A">Providence North is not affiliated with any government, sovereign body or state investment vehicle. It is a private company owned by its member, registered in Wyoming and operating from Bangkok, Thailand.</p>
+          <p style="font-size:1rem;line-height:1.7;color:#0D0C0A">Providence North is not affiliated with any government, sovereign body or state investment vehicle. It is a private company owned by its member, registered in the State of Wyoming, United States.</p>
         </div>
       </div>
       <p class="small mt-m" style="color:#5A5049">The Faithful Business and The Science of Wellness are lines of business of Providence North LLC, operated under trade names. They are not separate legal entities and are not subsidiaries, funds or investment vehicles.</p>
@@ -556,11 +555,6 @@ contact_body = pagehead("Partner Inquiry","Speak with Providence North.",
           <p class="small mt-s">Mail sent to the registered office is received and forwarded.</p>
         </div>
         <div class="card mt-m">
-          <span class="label">Operations</span>
-          <p class="mt-s" style="display:flex;gap:.7rem;align-items:flex-start">{IC["compass"]}<span class="body" style="color:var(--bone)">Bangkok, Thailand</span></p>
-          <p class="small mt-s">Providence North has no public office and does not receive visitors without an appointment.</p>
-        </div>
-        <div class="card mt-m">
           <span class="label">What we cannot help with</span>
           <p class="small mt-s">We are not a broker dealer or investment adviser and do not offer securities. We do not give investment, legal, tax or medical advice, and we do not respond to investment solicitations.</p>
         </div>
@@ -571,7 +565,7 @@ contact_body = pagehead("Partner Inquiry","Speak with Providence North.",
 '''+FORM_JS
 
 page("contact.html","Partner Inquiry | Providence North LLC",
-  "Contact Providence North LLC. Registered office in Sheridan, Wyoming. Operations in Bangkok, Thailand.",
+  "Contact Providence North LLC. Registered office in Sheridan, Wyoming, United States.",
   contact_body, "contact.html")
 
 # ================================================================ LEGAL
@@ -582,7 +576,7 @@ legal_body = pagehead("Legal &amp; Disclosures","Legal notice.",
     <div class="stack">
 
       <h2 class="h2">The company</h2>
-      <p class="body">Providence North LLC is a limited liability company registered in the State of Wyoming, United States. Its registered office is 30 N Gould St, STE R, Sheridan, WY 82801, United States, and its operations are conducted from Bangkok, Thailand. The company is privately held by its member and is not affiliated with any government, sovereign body or state investment vehicle.</p>
+      <p class="body">Providence North LLC is a limited liability company registered in the State of Wyoming, United States. Its registered office is 30 N Gould St, STE R, Sheridan, WY 82801, United States. The company is privately held by its member and is not affiliated with any government, sovereign body or state investment vehicle.</p>
 
       <h2 class="h2 mt-xl">Lines of business and trade names</h2>
       <p class="body">The Faithful Business and The Science of Wellness are lines of business of Providence North LLC, operated under trade names. They are not separate legal entities. They are not subsidiaries, partnerships, funds, pooled investment vehicles or joint ventures, and they do not have their own directors, officers or members. Obligations arising in either line of business are obligations of Providence North LLC.</p>
