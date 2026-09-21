@@ -232,25 +232,25 @@ governance_teaser = f'''<section class="sec" id="governance">
   <div class="wrap">
     <div class="eyebrow-row"><span class="label label-gold">Governance &amp; Standards</span></div>
     <h2 class="h2" style="max-width:26ch">The triad of Providence stewardship.</h2>
-    <p class="lead mt-s" style="max-width:62ch">Providence North does not treat capital as a transaction. It stewards the businesses it owns so that they last, stay lawful, and serve the people who depend on them.</p>
+    <p class="lead mt-s" style="max-width:62ch">Providence North does not treat capital as a transaction. It stewards the two lines of business it owns so that they last, stay lawful, and serve the people who depend on them. It does not take a stake in the ventures it connects.</p>
     <div class="grid3 mt-xl">
       <div class="card">
         <span class="triad-no">I</span>
         <span class="label mt-s" style="display:block">Pillar One</span>
         <h3 class="h3 mt-s">Patient Stewardship</h3>
-        <p class="body mt-s">Long horizon capital preservation anchored in balance sheet patience. We decline short cycle speculation in favour of compounding structural value alongside honest enterprises.</p>
+        <p class="body mt-s">Long horizon discernment rather than short cycle speculation. We take time to know the founders we serve, and we connect them patiently to Christian capital, advisers and community rather than racing to a quick outcome.</p>
       </div>
       <div class="card">
         <span class="triad-no">II</span>
         <span class="label mt-s" style="display:block">Pillar Two</span>
         <h3 class="h3 mt-s">Governance</h3>
-        <p class="body mt-s">Regulatory care and contractual integrity across both lines of business. Statutory conformity and continuous legal oversight underwrite every partnership we form.</p>
+        <p class="body mt-s">Regulatory care and contractual integrity across both lines of business. We deal honestly, put our agreements in writing, and keep our own filings current and compliant in every jurisdiction where we are registered.</p>
       </div>
       <div class="card">
         <span class="triad-no">III</span>
         <span class="label mt-s" style="display:block">Pillar Three</span>
         <h3 class="h3 mt-s">Purpose and Flourishing</h3>
-        <p class="body mt-s">Commitment to the spiritual vitality and physical wellbeing of the people our companies serve. We back ordinary ventures that honour God and help families thrive.</p>
+        <p class="body mt-s">Prayer and spiritual purpose come first. We pray for the founders we serve and for the families their work supports, and we connect ordinary ventures that honour God to the capital, counsel and community that help them thrive.</p>
       </div>
     </div>
     <a class="tlink mt-l" href="/governance.html" style="display:inline-flex;margin-top:2.5rem">Read the full standard {IC["arrow"]}</a>
@@ -274,7 +274,7 @@ mission_band = f'''<section class="sec" id="mission">
       <div class="ivory">
         <span class="label">Statement of Purpose</span>
         <p style="font-family:var(--font-display);font-size:1.5rem;line-height:1.4;margin-top:1.2rem;color:#0D0C0A">
-          &ldquo;We are stewards, not owners. The businesses are held for the people they serve, the families they employ, and the churches they strengthen.&rdquo;
+          &ldquo;We are stewards, not owners. The two lines of business we hold are held for the people they serve, the families they employ, and the churches they strengthen. The ventures we connect are owned by their founders, not by us.&rdquo;
         </p>
         <hr class="mt-l" style="border:0;height:1px;background:rgba(13,12,10,.18);margin:1.75rem 0 1.1rem">
         <span class="label">Providence North LLC</span>
@@ -400,22 +400,22 @@ gov_body = pagehead("Governance &amp; Standards","How the company is run.",
         <span class="triad-no">I</span>
         <span class="label mt-s" style="display:block">Pillar One</span>
         <h3 class="h3 mt-s">Patient Stewardship</h3>
-        <p class="body mt-s">Long horizon capital preservation anchored in balance sheet patience. We decline short cycle speculation in favour of compounding structural value alongside honest enterprises.</p>
-        <p class="body mt-s">In practice: no leverage taken against the operating companies, no growth bought with borrowed money, and no sale of a business simply because a buyer appears.</p>
+        <p class="body mt-s">Long horizon discernment rather than short cycle speculation. We take time to know the founders we serve, and we connect them patiently to Christian capital, advisers and community rather than racing to a quick outcome.</p>
+        <p class="body mt-s">In practice: no leverage taken against our own lines of business, no growth bought with borrowed money, and no sale of a business simply because a buyer appears.</p>
       </div>
       <div class="card">
         <span class="triad-no">II</span>
         <span class="label mt-s" style="display:block">Pillar Two</span>
         <h3 class="h3 mt-s">Governance</h3>
-        <p class="body mt-s">Regulatory care and contractual integrity across both lines of business. Statutory conformity and continuous legal oversight underwrite every partnership we form.</p>
+        <p class="body mt-s">Regulatory care and contractual integrity across both lines of business. We deal honestly, put our agreements in writing, and keep our own filings current and compliant in every jurisdiction where we are registered.</p>
         <p class="body mt-s">In practice: written agreements for every material dealing, counsel retained on retainer, and statutory filings kept current in every jurisdiction where we are registered.</p>
       </div>
       <div class="card">
         <span class="triad-no">III</span>
         <span class="label mt-s" style="display:block">Pillar Three</span>
         <h3 class="h3 mt-s">Purpose and Flourishing</h3>
-        <p class="body mt-s">Commitment to the spiritual vitality and physical wellbeing of the people our companies serve. We back ordinary ventures that honour God and help families thrive.</p>
-        <p class="body mt-s">In practice: we choose businesses that provide real work for real families, and we measure them by whether those families are better off.</p>
+        <p class="body mt-s">Prayer and spiritual purpose come first. We pray for the founders we serve and for the families their work supports, and we connect ordinary ventures that honour God to the capital, counsel and community that help them thrive.</p>
+        <p class="body mt-s">In practice: we favour businesses that provide real work for real families, and we judge our own service by whether those families are better off.</p>
       </div>
     </div>
   </div>
@@ -464,7 +464,7 @@ mission_body = pagehead("Mission","Why the company exists.",
       <div class="stack">
         <p class="lead">A diner, a burger shop, a media brand, or something much larger. The size is not the point. What matters is that the business is real, the work is honest, and the family behind it is provided for.</p>
         <p class="body">Faith in business is not a slogan and it is not a guarantee of success. It is a way of dealing with people. Pay what you agreed to pay. Do not overstate what you have. Do not hide a problem to close a deal. When you are wrong, say so and put it right.</p>
-        <p class="body">That is the whole of our doctrine, and it is harder to keep than it sounds. It is also the reason we can hold a business for twenty years and still look a partner in the eye.</p>
+        <p class="body">That is the whole of our doctrine, and it is harder to keep than it sounds. It is also the reason we can stand by a founder for twenty years and still look a partner in the eye.</p>
       </div>
       <div class="ivory">
         <span class="label">The frame we work inside</span>
@@ -477,13 +477,18 @@ mission_body = pagehead("Mission","Why the company exists.",
 
 <section class="sec">
   <div class="wrap">
-    <div class="eyebrow-row"><span class="label label-gold">Two audiences</span></div>
+    <div class="eyebrow-row"><span class="label label-gold">Three audiences</span></div>
     <h2 class="h2" style="max-width:26ch">Who we build for.</h2>
-    <div class="grid2 mt-xl">
+    <div class="grid3 mt-xl">
       <div class="card">
         <span class="chip">Founders and families</span>
         <h3 class="h3 mt-m">People who want to build something honest</h3>
         <p class="body mt-s">If the business is real and the work is honest, we want to know about it. We are not looking for the next unicorn. We are looking for a business that will still be standing in twenty years and still paying the family that runs it.</p>
+      </div>
+      <div class="card">
+        <span class="chip">App developers and vibe coders</span>
+        <h3 class="h3 mt-m">People shipping a product right now</h3>
+        <p class="body mt-s">Developers and vibe coders who have built something real and are ready to launch it. If you can build it but you need capital, counsel and a community behind you, we want to hear from you. Launch support is one of the main things we do.</p>
       </div>
       <div class="card">
         <span class="chip">Partners and advisers</span>
