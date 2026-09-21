@@ -238,19 +238,19 @@ governance_teaser = f'''<section class="sec" id="governance">
         <span class="triad-no">I</span>
         <span class="label mt-s" style="display:block">Pillar One</span>
         <h3 class="h3 mt-s">Patient Stewardship</h3>
-        <p class="body mt-s">Long horizon discernment rather than short cycle speculation. We take time to know the founders we serve, and we connect them patiently to Christian capital, advisers and community rather than racing to a quick outcome.</p>
+        <p class="body mt-s">We connect Christian founders with accredited investors and Christian advisers. There is no requirement that an accredited investor be Christian. We are a listing and connection service: we do not intermediate, we do not negotiate on anyone's behalf, and we are not a party to any deal.</p>
       </div>
       <div class="card">
         <span class="triad-no">II</span>
         <span class="label mt-s" style="display:block">Pillar Two</span>
         <h3 class="h3 mt-s">Governance</h3>
-        <p class="body mt-s">Regulatory care and contractual integrity across both lines of business. We deal honestly, put our agreements in writing, and keep our own filings current and compliant in every jurisdiction where we are registered.</p>
+        <p class="body mt-s">Regulatory care, honest dealing and contractual integrity across both lines of business. Our listings are transparent, our agreements with participants are clear and put in writing, and we keep our own filings current and compliant in every jurisdiction where we are registered.</p>
       </div>
       <div class="card">
         <span class="triad-no">III</span>
         <span class="label mt-s" style="display:block">Pillar Three</span>
         <h3 class="h3 mt-s">Purpose and Flourishing</h3>
-        <p class="body mt-s">Prayer and spiritual purpose come first. We pray for the founders we serve and for the families their work supports, and we connect ordinary ventures that honour God to the capital, counsel and community that help them thrive.</p>
+        <p class="body mt-s">Prayer and spiritual purpose come first. We pray for the founders we serve and for the families their work supports, and we connect ordinary ventures that honour God to the investors, counsel and community that help them thrive.</p>
       </div>
     </div>
     <a class="tlink mt-l" href="/governance.html" style="display:inline-flex;margin-top:2.5rem">Read the full standard {IC["arrow"]}</a>
@@ -328,7 +328,7 @@ tfb = f'''<section class="sec" id="faithful-business">
       <div class="card">
         <span class="chip">VC Corner</span>
         <h3 class="h3 mt-m">Founders list, accredited investors subscribe</h3>
-        <p class="body mt-s">VC Corner is an advertising and listing service. Founders publish a listing, and accredited investors subscribe to see those listings and contact founders directly. We do not recommend or give investment advice, and due diligence is carried out by both parties and their counsel.</p>
+        <p class="body mt-s">VC Corner is an advertising and listing service. Founders publish a listing, and accredited investors subscribe to see those listings and contact founders directly. Investors need not be Christian; the accredited standard is what governs. We do not recommend or give investment advice, and due diligence is carried out by both parties and their counsel.</p>
       </div>
       <div class="card">
         <span class="chip chip-mute">The Law Connect</span>
@@ -400,21 +400,20 @@ gov_body = pagehead("Governance &amp; Standards","How the company is run.",
         <span class="triad-no">I</span>
         <span class="label mt-s" style="display:block">Pillar One</span>
         <h3 class="h3 mt-s">Patient Stewardship</h3>
-        <p class="body mt-s">Long horizon discernment rather than short cycle speculation. We take time to know the founders we serve, and we connect them patiently to Christian capital, advisers and community rather than racing to a quick outcome.</p>
-        <p class="body mt-s">In practice: no leverage taken against our own lines of business, no growth bought with borrowed money, and no sale of a business simply because a buyer appears.</p>
+        <p class="body mt-s">We connect Christian founders with accredited investors and Christian advisers. There is no requirement that an accredited investor be Christian. We are a listing and connection service: we do not intermediate, we do not negotiate on anyone's behalf, and we are not a party to any deal.</p>
       </div>
       <div class="card">
         <span class="triad-no">II</span>
         <span class="label mt-s" style="display:block">Pillar Two</span>
         <h3 class="h3 mt-s">Governance</h3>
-        <p class="body mt-s">Regulatory care and contractual integrity across both lines of business. We deal honestly, put our agreements in writing, and keep our own filings current and compliant in every jurisdiction where we are registered.</p>
-        <p class="body mt-s">In practice: written agreements for every material dealing, counsel retained on retainer, and statutory filings kept current in every jurisdiction where we are registered.</p>
+        <p class="body mt-s">Regulatory care, honest dealing and contractual integrity across both lines of business. Our listings are transparent, our agreements with participants are clear and put in writing, and we keep our own filings current and compliant in every jurisdiction where we are registered.</p>
+        <p class="body mt-s">In practice: our listing terms are published and plainly written, our agreements with participants are documented, and we hold no position in any business we list.</p>
       </div>
       <div class="card">
         <span class="triad-no">III</span>
         <span class="label mt-s" style="display:block">Pillar Three</span>
         <h3 class="h3 mt-s">Purpose and Flourishing</h3>
-        <p class="body mt-s">Prayer and spiritual purpose come first. We pray for the founders we serve and for the families their work supports, and we connect ordinary ventures that honour God to the capital, counsel and community that help them thrive.</p>
+        <p class="body mt-s">Prayer and spiritual purpose come first. We pray for the founders we serve and for the families their work supports, and we connect ordinary ventures that honour God to the investors, counsel and community that help them thrive.</p>
         <p class="body mt-s">In practice: we favour businesses that provide real work for real families, and we judge our own service by whether those families are better off.</p>
       </div>
     </div>
@@ -427,7 +426,7 @@ gov_body = pagehead("Governance &amp; Standards","How the company is run.",
     <h2 class="h2" style="max-width:26ch">Five rules we hold ourselves to.</h2>
     <div class="grid2 mt-xl">
       <div class="card">{feat("shield","Say what is true","No claim about a business, a product or a result that we cannot point to in the records.")}
-      {feat("scale","Written agreements","Every material dealing is documented, and each party keeps its own counsel where it needs one.")}</div>
+      {feat("scale","Written agreements","Our agreements with participants are documented, and each party keeps its own counsel where it needs one.")}</div>
       <div class="card">{feat("bank","Clean books","Accounts kept current and reconciled. Filings made on time in every jurisdiction where we are registered.")}
       {feat("compass","No outside capital","Providence North is privately funded. There is no fund, no outside limited partner capital and no investment offering.")}</div>
     </div>
@@ -463,7 +462,7 @@ mission_body = pagehead("Mission","Why the company exists.",
     <div class="split">
       <div class="stack">
         <p class="lead">A diner, a burger shop, a media brand, or something much larger. The size is not the point. What matters is that the business is real, the work is honest, and the family behind it is provided for.</p>
-        <p class="body">Faith in business is not a slogan and it is not a guarantee of success. It is a way of dealing with people. Pay what you agreed to pay. Do not overstate what you have. Do not hide a problem to close a deal. When you are wrong, say so and put it right.</p>
+        <p class="body">Faith in business is not a slogan and it is not a guarantee of success. It is a way of dealing with people. Pay what you agreed to pay. Do not overstate what you have. Do not hide a problem to make a sale. When you are wrong, say so and put it right.</p>
         <p class="body">That is the whole of our doctrine, and it is harder to keep than it sounds. It is also the reason we can stand by a founder for twenty years and still look a partner in the eye.</p>
       </div>
       <div class="ivory">
@@ -488,7 +487,7 @@ mission_body = pagehead("Mission","Why the company exists.",
       <div class="card">
         <span class="chip">App developers and vibe coders</span>
         <h3 class="h3 mt-m">People shipping a product right now</h3>
-        <p class="body mt-s">Developers and vibe coders who have built something real and are ready to launch it. If you can build it but you need capital, counsel and a community behind you, we want to hear from you. Launch support is one of the main things we do.</p>
+        <p class="body mt-s">We serve Christian founders across every sector. App developers, vibe coders, product builders and entrepreneurs launching new ventures are as welcome here as a diner or a trades business. If you are building something real and you need investors, advisers and a community behind you, we want to hear from you.</p>
       </div>
       <div class="card">
         <span class="chip">Partners and advisers</span>
@@ -598,7 +597,7 @@ legal_body = pagehead("Legal &amp; Disclosures","Legal notice.",
       <p class="body">Compliance with Rule 506, including the reasonable steps required to verify that every purchaser is an accredited investor, remains the responsibility of the issuing company making the offering. That verification may be performed through an independent third-party verification service, but the legal burden of it is not assumed by Providence North LLC or by The Faithful Business. Investors are responsible for confirming that they qualify in their own jurisdiction.</p>
 
       <h2 class="h2 mt-xl">Advertising and listing services</h2>
-      <p class="body">VC Corner is an advertising and listing service. Founders publish a listing describing their own business, and accredited investors subscribe to see those listings and to contact founders directly. A listing is advertising. It is not a recommendation, an endorsement, a valuation or an offer. Providence North LLC does not evaluate the financial merit, viability or investment potential of any company. Due diligence is carried out by both parties and their counsel.</p>
+      <p class="body">VC Corner is an advertising and listing service. Founders publish a listing describing their own business, and accredited investors subscribe to see those listings and to contact founders directly. Investors need not be Christian; the accredited standard is what governs. A listing is advertising. It is not a recommendation, an endorsement, a valuation or an offer. Providence North LLC does not evaluate the financial merit, viability or investment potential of any company. Due diligence is carried out by both parties and their counsel.</p>
       <p class="body">The Law Connect is a directory in which attorneys publish a listing for their own practice. The directory is advertising. It is not a curated or recommended panel, it is not a lawyer referral service, and nothing in it is legal advice. Any engagement is between the attorney and the client.</p>
       <p class="body">Verification of a business, founder or professional is limited to identity, active church membership and document completeness. It is not an endorsement of a business, a product or an investment, and it is not a review of the business itself.</p>
 
