@@ -266,7 +266,7 @@ mission_band = f'''<section class="sec" id="mission">
         <h2 class="h2">Why the company exists.</h2>
         <div class="stack mt-m">
           <p class="lead">Providence North exists to build ordinary, honest, profitable businesses that let Christians provide for their families and make an impact at their church and in God's kingdom.</p>
-          <p class="body">A diner, a burger shop, a media brand, or something much larger. The size is not the point. What matters is that the business is real, the work is honest, and the family behind it is provided for.</p>
+          <p class="body">The next big SaaS, App or Media Brand, or something much smaller like a Diner or Burger Shop. What matters is that the business is real, the work is honest, and the family behind it is provided for.</p>
           <p class="body">We verify the founder’s identity and church membership status. We do not verify a business’s financial merit. Providence North holds the business to a standard of lawful, transparent dealing.</p>
         </div>
         <a class="tlink mt-l" href="/mission.html" style="display:inline-flex;margin-top:2.2rem">Our mission in full {IC["arrow"]}</a>
@@ -461,7 +461,7 @@ mission_body = pagehead("Mission","Why the company exists.",
   <div class="wrap">
     <div class="split">
       <div class="stack">
-        <p class="lead">A diner, a burger shop, a media brand, or something much larger. The size is not the point. What matters is that the business is real, the work is honest, and the family behind it is provided for.</p>
+        <p class="lead">The next big SaaS, App or Media Brand, or something much smaller like a Diner or Burger Shop. What matters is that the business is real, the work is honest, and the family behind it is provided for.</p>
         <p class="body">Faith in business is not a slogan and it is not a guarantee of success. It is a way of dealing with people. Pay what you agreed to pay. Do not overstate what you have. Do not hide a problem to make a sale. When you are wrong, say so and put it right.</p>
         <p class="body">That is the whole of our doctrine, and it is harder to keep than it sounds. It is also the reason we can stand by a founder for twenty years and still look a partner in the eye.</p>
       </div>
