@@ -170,7 +170,7 @@ hero = f'''<section class="hero">
     <span class="label label-gold">Private holding company</span>
     <h1 class="display">Enduring value, built on faith, capital and human wellbeing.</h1>
     <p class="lead">Providence North is a private holding company. It operates two lines of business: The Faithful Business and The Science of Wellness.</p>
-    <div class="hero-pill"><span class="dot"></span>Wyoming LLC &middot; No outside LP capital</div>
+    <div class="hero-pill"><span class="dot"></span>Wyoming LLC &middot; Member-funded &middot; No outside investors</div>
     <div class="hero-cta">
       <a class="btn btn-primary" href="/portfolio.html">Explore the businesses</a>
       <a class="btn btn-ghost" href="/contact.html">Partner Inquiry</a>
@@ -184,8 +184,8 @@ pillars = f'''<section aria-label="Company at a glance">
   <div class="pillars">
       <div class="pillar"><div class="label">Lines of Business</div><div class="k">Two</div><div class="v">Faith and health</div><div class="u">Two focused businesses, one standard</div></div>
       <div class="pillar"><div class="label">Stewardship Horizon</div><div class="k">Generational</div><div class="v">Multi decade alignment</div><div class="u">Built to be held, not flipped</div></div>
-      <div class="pillar"><div class="label">Capital Structure</div><div class="k">Privately Funded</div><div class="v">No outside LP capital</div><div class="u">No fund, no outside partners</div></div>
-      <div class="pillar"><div class="label">Ethical Mandate</div><div class="k">Biblical and Scientific</div><div class="v">Fiduciary discipline</div><div class="u">Honest books, honest claims</div></div>
+      <div class="pillar"><div class="label">Capital Structure</div><div class="k">Member-Funded</div><div class="v">No outside investors</div><div class="u">Not a fund &middot; provides capital to no one</div></div>
+      <div class="pillar"><div class="label">Compliance Standard</div><div class="k">Lawful and Accurate</div><div class="v">Regulatory discipline</div><div class="u">Clean books, accurate claims</div></div>
   </div>
 </section>
 '''
@@ -203,8 +203,8 @@ portfolio = f'''<section class="sec" id="portfolio">
           <div><span class="label">Line of Business I</span><h3 class="h3 mt-s">The Faithful Business</h3></div>
         </div>
         <span class="chip">Faith driven commerce &middot; Legal directory</span>
-        <p class="body mt-m">A network that connects Christians with businesses, founders and professional advisers who share their convictions. The church verifies the founder, not the entity.</p>
-        {feat("users","Faith verified marketplace","Browse businesses and professionals whose founders are active members of their local church.")}
+        <p class="body mt-m">A network that connects Christians with businesses, founders and professional advisers who share their convictions. We verify the founder’s identity and church membership status. We do not verify a business’s financial merit.</p>
+        {feat("users","Identity-verified network","Browse businesses and professionals whose founders are active members of their local church.")}
         {feat("scale","VC Corner","Founders publish a listing and accredited investors subscribe to see it. This is an advertising and listing service. We do not recommend or give investment advice, and due diligence is carried out by both parties and their counsel.")}
         {feat("book","The Law Connect","A directory where Christian attorneys publish a listing for their own practice.")}
         <a class="tlink mt-l" href="https://www.thefaithfulbusiness.com" rel="noopener" target="_blank" style="display:inline-flex">www.thefaithfulbusiness.com {IC["arrow"]}</a>
@@ -267,7 +267,7 @@ mission_band = f'''<section class="sec" id="mission">
         <div class="stack mt-m">
           <p class="lead">Providence North exists to build ordinary, honest, profitable businesses that let Christians provide for their families and make an impact at their church and in God's kingdom.</p>
           <p class="body">A diner, a burger shop, a media brand, or something much larger. The size is not the point. What matters is that the business is real, the work is honest, and the family behind it is provided for.</p>
-          <p class="body">The church verifies the founder. Providence North holds the business to a standard of lawful, transparent dealing.</p>
+          <p class="body">We verify the founder’s identity and church membership status. We do not verify a business’s financial merit. Providence North holds the business to a standard of lawful, transparent dealing.</p>
         </div>
         <a class="tlink mt-l" href="/mission.html" style="display:inline-flex;margin-top:2.2rem">Our mission in full {IC["arrow"]}</a>
       </div>
@@ -318,11 +318,11 @@ tfb = f'''<section class="sec" id="faithful-business">
       <img src="/assets/img/the-faithful-business-logo.png" alt="The Faithful Business logo" style="width:88px;height:88px">
       <div><span class="label label-gold">Line of Business I</span><h2 class="h2 mt-s">The Faithful Business</h2></div>
     </div>
-    <p class="lead" style="max-width:66ch">A network that connects Christians with businesses, founders and professional advisers who share their convictions. The church verifies the founder, not the entity.</p>
+    <p class="lead" style="max-width:66ch">A network that connects Christians with businesses, founders and professional advisers who share their convictions. We verify the founder’s identity and church membership status. We do not verify a business’s financial merit.</p>
     <div class="grid3 mt-xl">
       <div class="card">
         <span class="chip">Marketplace</span>
-        <h3 class="h3 mt-m">Faith verified businesses and professionals</h3>
+        <h3 class="h3 mt-m">Verified member directory</h3>
         <p class="body mt-s">Business owners and professionals list themselves in the network. Verification is limited to identity, active church membership and document completeness. We do not evaluate the financial merit, viability or investment potential of any company.</p>
       </div>
       <div class="card">
@@ -376,7 +376,7 @@ what_we_are_not = f'''<section class="sec">
           <p style="font-size:1rem;line-height:1.7;color:#0D0C0A">Providence North is not a fund and does not take outside limited partner capital. It is not a registered broker dealer or investment adviser, and it does not offer securities. Nothing on this website is an offer to sell or a solicitation of an offer to buy any security.</p>
         </div>
         <div>
-          <p style="font-size:1rem;line-height:1.7;color:#0D0C0A">Providence North is not affiliated with any government, sovereign body or state investment vehicle. It is a private company owned by its member, registered in the State of Wyoming, United States.</p>
+          <p style="font-size:1rem;line-height:1.7;color:#0D0C0A">Providence North is a private company with no public funding. It is a private company owned by its member, registered in the State of Wyoming, United States.</p>
         </div>
       </div>
       <p class="small mt-m" style="color:#5A5049">The Faithful Business and The Science of Wellness are lines of business of Providence North LLC, operated under trade names. They are not separate legal entities and are not subsidiaries, funds or investment vehicles.</p>
@@ -430,7 +430,7 @@ gov_body = pagehead("Governance &amp; Standards","How the company is run.",
       <div class="card">{feat("bank","Clean books","Accounts kept current and reconciled. Filings made on time in every jurisdiction where we are registered.")}
       {feat("compass","No outside capital","Providence North is privately funded. There is no fund, no outside limited partner capital and no investment offering.")}</div>
     </div>
-    <div class="card mt-l" style="max-width:none">{feat("users","The church verifies the founder","For businesses in The Faithful Business network, verification covers identity, active church membership and document completeness. It is not an endorsement, and it is not a review of the business itself.")}</div>
+    <div class="card mt-l" style="max-width:none">{feat("users","We verify the founder’s identity and church membership status","For businesses in The Faithful Business network, verification covers identity, active church membership and document completeness. It is not an endorsement, and it is not a review of the business itself.")}</div>
   </div>
 </section>
 
@@ -439,7 +439,7 @@ gov_body = pagehead("Governance &amp; Standards","How the company is run.",
     <div class="eyebrow-row"><span class="label label-gold">Disclosures</span></div>
     <h2 class="h2" style="max-width:24ch">Regulatory and legal disclosure.</h2>
     <div class="stack mt-m" style="max-width:76ch">
-      <p class="body">Providence North LLC is a limited liability company registered in the State of Wyoming, United States. It is privately held and is not affiliated with any government, sovereign body or state investment vehicle.</p>
+      <p class="body">Providence North LLC is a limited liability company registered in the State of Wyoming, United States. It is privately held by its member and has no public funding.</p>
       <p class="body">Providence North LLC is not a registered broker dealer, investment adviser, fund, or pooled investment vehicle. It does not offer, sell or solicit the purchase of any security, and it does not manage money for third parties.</p>
       <p class="body">Nothing on this website is an offer to sell, or a solicitation of an offer to buy, any security, nor is it investment, legal, tax, accounting or medical advice. Any figures, descriptions or forward looking statements on this site are general in nature and subject to change without notice.</p>
       <p class="body">The Faithful Business operates advertising and directory listing services. Verification of a business or a professional is limited to identity, active church membership and document completeness. Providence North LLC does not evaluate the financial merit, viability or investment potential of any company, does not recommend or give investment advice, and due diligence is carried out by both parties and their counsel.</p>
@@ -467,7 +467,7 @@ mission_body = pagehead("Mission","Why the company exists.",
       </div>
       <div class="ivory">
         <span class="label">The frame we work inside</span>
-        <p style="font-family:var(--font-display);font-size:1.35rem;line-height:1.45;margin-top:1.1rem;color:#0D0C0A">The church verifies the founder, not the entity. Providence North holds the business to a standard of lawful, transparent dealing.</p>
+        <p style="font-family:var(--font-display);font-size:1.35rem;line-height:1.45;margin-top:1.1rem;color:#0D0C0A">We verify the founder’s identity and church membership status. We do not verify a business’s financial merit. Providence North holds the business to a standard of lawful, transparent dealing.</p>
         <p class="small" style="margin-top:1.25rem;color:#5A5049">Verification is limited to identity, active church membership and document completeness. It is not an endorsement of a business, a product or an investment.</p>
       </div>
     </div>
@@ -485,9 +485,9 @@ mission_body = pagehead("Mission","Why the company exists.",
         <p class="body mt-s">If the business is real and the work is honest, we want to know about it. We are not looking for the next unicorn. We are looking for a business that will still be standing in twenty years and still paying the family that runs it.</p>
       </div>
       <div class="card">
-        <span class="chip">App developers and vibe coders</span>
+        <span class="chip">Founders producing apps and SaaS</span>
         <h3 class="h3 mt-m">People shipping a product right now</h3>
-        <p class="body mt-s">We serve Christian founders across every sector. App developers, vibe coders, product builders and entrepreneurs launching new ventures are as welcome here as a diner or a trades business. If you are building something real and you need investors, advisers and a community behind you, we want to hear from you.</p>
+        <p class="body mt-s">We serve Christian founders across every sector. Founders producing apps and SaaS, product builders and entrepreneurs launching new ventures are as welcome here as a diner or a trades business. If you are building something real and you need investors, advisers and a community behind you, we want to hear from you.</p>
       </div>
       <div class="card">
         <span class="chip">Partners and advisers</span>
@@ -580,7 +580,7 @@ legal_body = pagehead("Legal &amp; Disclosures","Legal notice.",
     <div class="stack">
 
       <h2 class="h2">The company</h2>
-      <p class="body">Providence North LLC is a limited liability company registered in the State of Wyoming, United States. Its registered office is 30 N Gould St, STE R, Sheridan, WY 82801, United States. The company is privately held by its member and is not affiliated with any government, sovereign body or state investment vehicle.</p>
+      <p class="body">Providence North LLC is a limited liability company registered in the State of Wyoming, United States. Its registered office is 30 N Gould St, STE R, Sheridan, WY 82801, United States. The company is privately held by its member and has no public funding.</p>
 
       <h2 class="h2 mt-xl">Lines of business and trade names</h2>
       <p class="body">The Faithful Business and The Science of Wellness are lines of business of Providence North LLC, operated under trade names. They are not separate legal entities. They are not subsidiaries, partnerships, funds, pooled investment vehicles or joint ventures, and they do not have their own directors, officers or members. Obligations arising in either line of business are obligations of Providence North LLC.</p>
