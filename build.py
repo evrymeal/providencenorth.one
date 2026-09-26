@@ -373,7 +373,7 @@ what_we_are_not = f'''<section class="sec">
       <span class="label">What we are not</span>
       <div class="grid2 mt-m" style="gap:1.5rem">
         <div>
-          <p style="font-size:1rem;line-height:1.7;color:#0D0C0A">Providence North is not a fund and does not take outside limited partner capital. It is not a registered broker dealer or investment adviser, and it does not offer securities. Nothing on this website is an offer to sell or a solicitation of an offer to buy any security.</p>
+          <p style="font-size:1rem;line-height:1.7;color:#0D0C0A">Providence North is not a fund and does not take outside investment. It does not invest in or provide capital to the businesses it lists, and it is a privately held listing and directory service operator. It is not a registered broker dealer or investment adviser, and it does not offer securities. Nothing on this website is an offer to sell or a solicitation of an offer to buy any security.</p>
         </div>
         <div>
           <p style="font-size:1rem;line-height:1.7;color:#0D0C0A">Providence North is a private company with no public funding. It is a private company owned by its member, registered in the State of Wyoming, United States.</p>
@@ -428,7 +428,7 @@ gov_body = pagehead("Governance &amp; Standards","How the company is run.",
       <div class="card">{feat("shield","Say what is true","No claim about a business, a product or a result that we cannot point to in the records.")}
       {feat("scale","Written agreements","Our agreements with participants are documented, and each party keeps its own counsel where it needs one.")}</div>
       <div class="card">{feat("bank","Clean books","Accounts kept current and reconciled. Filings made on time in every jurisdiction where we are registered.")}
-      {feat("compass","No outside capital","Providence North is privately funded. There is no fund, no outside limited partner capital and no investment offering.")}</div>
+      {feat("compass","No outside capital","Providence North is privately funded. There is no fund, no outside investment and no investment offering.")}</div>
     </div>
     <div class="card mt-l" style="max-width:none">{feat("users","We verify the founder’s identity and church membership status","For businesses in The Faithful Business network, verification covers identity, active church membership and document completeness. It is not an endorsement, and it is not a review of the business itself.")}</div>
   </div>
@@ -482,7 +482,7 @@ mission_body = pagehead("Mission","Why the company exists.",
       <div class="card">
         <span class="chip">Founders and families</span>
         <h3 class="h3 mt-m">People who want to build something honest</h3>
-        <p class="body mt-s">If the business is real and the work is honest, we want to know about it. We are not looking for the next unicorn. We are looking for a business that will still be standing in twenty years and still paying the family that runs it.</p>
+        <p class="body mt-s">If the business is real and the work is honest, we want to know about it.</p>
       </div>
       <div class="card">
         <span class="chip">Founders producing apps and SaaS</span>
@@ -588,7 +588,7 @@ legal_body = pagehead("Legal &amp; Disclosures","Legal notice.",
       <h2 class="h2 mt-xl">Securities and regulatory position</h2>
       <p class="body"><strong style="color:var(--bone)">The Faithful Business is not a broker dealer or an investment adviser.</strong> It is not registered under Section 15(a) of the Securities Exchange Act of 1934 or under the Investment Advisers Act of 1940. It does not effect or execute securities transactions, does not hold or custody customer funds or securities, does not negotiate the terms of any transaction between a founder and an investor, and does not give investment advice of any kind.</p>
       <p class="body">Any offering published on The Faithful Business is made by the issuing company itself, and not by Providence North LLC or by any of its lines of business. Those offerings are made in reliance on exemptions from registration under the Securities Act of 1933, as amended, including Section 4(a)(2) and Rule 506(c) of Regulation D, 17 CFR 230.506(c). Rule 506(c) permits general solicitation and general advertising where every purchaser is a verified accredited investor. Offers made under that rule are securities that are subject to transfer restrictions, and investors must satisfy applicable eligibility and verification requirements in the jurisdiction where they qualify.</p>
-      <p class="body">Providence North LLC is not a registered broker dealer, investment adviser, fund or pooled investment vehicle. It does not offer, sell or solicit the purchase of any security, does not manage money for any third party and does not take outside limited partner capital.</p>
+      <p class="body">Providence North LLC is not a registered broker dealer, investment adviser, fund or pooled investment vehicle. It does not offer, sell or solicit the purchase of any security, does not manage money for any third party and does not take outside investment.</p>
 
       <h3 class="h3 mt-l">Basis of the platform position</h3>
       <p class="body">The Faithful Business operates as a platform. Its regulatory position rests on Section 4(b) of the Securities Act of 1933, 15 U.S.C. 77d(b), which was added by Title II of the JOBS Act. That section provides that a person who satisfies its conditions is not required to register as a broker under Section 15(a)(1) of the Securities Exchange Act of 1934 solely because of defined platform activity carried out in connection with an offering made under Rule 506 of Regulation D.</p>
