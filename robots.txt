@@ -1,4 +1,11 @@
+# Canonical host: https://providencenorth.one/
+# www.providencenorth.one permanently redirects (301) to the apex.
+# One sitemap covers the site; do not submit a separate www sitemap.
 User-agent: *
 Allow: /
+
+# Plain-text summaries for AI crawlers (see https://llmstxt.org):
+# https://providencenorth.one/llms.txt
+# https://providencenorth.one/llms-full.txt
 
 Sitemap: https://providencenorth.one/sitemap.xml

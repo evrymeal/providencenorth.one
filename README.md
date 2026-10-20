@@ -21,8 +21,9 @@ python3 build.py
 ```
 
 That rewrites `index.html`, `portfolio.html`, `governance.html`, `mission.html`,
-`contact.html` and `404.html` in place. Edit the HTML directly only if you are happy for
-it to be overwritten on the next build.
+`contact.html`, `legal.html`, and `404.html` in place, and also rewrites
+`robots.txt`, `sitemap.xml`, `llms.txt`, and `llms-full.txt`. Edit those files
+directly only if you are happy for them to be overwritten on the next build.
 
 ## Design tokens
 
