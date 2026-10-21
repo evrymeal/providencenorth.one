@@ -1,0 +1,34 @@
+# Providence North LLC
+
+> Providence North LLC is the Wyoming private holding company that operates The Faithful Business and The Science of Wellness. Not a fund, broker-dealer, or investment adviser. Not a Florida D&B entity, California nursing homes, or Tennessee townhomes.
+
+Providence North LLC is a limited liability company registered in the State of Wyoming, United States. It is privately held by its member, member-funded, and has no outside investors and no public funding. It is a private holding company with two lines of business, operated under trade names: The Faithful Business and The Science of Wellness. Those lines of business are not separate legal entities, and they are not subsidiaries, funds, or investment vehicles.
+
+This website is published by that Wyoming company. Canonical host: https://providencenorth.one/ . www.providencenorth.one permanently redirects (301) to the apex.
+
+## Lines of business
+
+- [The Faithful Business](https://www.thefaithfulbusiness.com): A network that connects Christians with businesses, founders, and professional advisers who share their convictions. Verification is limited to founder identity, active church membership, and document completeness. It does not verify a business’s financial merit. VC Corner is an advertising and listing service: founders publish a listing, and accredited investors subscribe to see it. The Law Connect is a directory where Christian attorneys publish a listing for their own practice. The Faithful Business is not a broker-dealer or an investment adviser. It does not effect securities transactions, hold customer funds or securities, or give investment advice. Listings are advertising by the issuing company.
+- The Science of Wellness: A digital broadcast brand that translates research on metabolic health, cellular ageing, and preventive medicine for a general audience. Documentary and short-form video are published on YouTube. This site does not publish a separate URL for The Science of Wellness. Its content is educational and is not medical advice.
+
+## What this company is not
+
+- Not a fund, and it does not take outside investment. It does not invest in or provide capital to the businesses it lists.
+- Not a registered broker-dealer, investment adviser, fund, or pooled investment vehicle. It does not offer, sell, or solicit the purchase of any security, and it does not manage money for third parties.
+- Nothing on this site is an offer to sell, or a solicitation of an offer to buy, any security, and nothing on this site is investment, legal, tax, or medical advice.
+- Not a Florida D&B entity, not California nursing homes, and not Tennessee townhomes.
+
+## Key pages
+
+- [Overview](https://providencenorth.one/): Holding company overview.
+- [Lines of business](https://providencenorth.one/portfolio.html): The Faithful Business and The Science of Wellness.
+- [Governance and standards](https://providencenorth.one/governance.html): Stewardship standard, operating rules, and regulatory disclosures.
+- [Mission](https://providencenorth.one/mission.html): Why the company exists.
+- [Partner inquiry](https://providencenorth.one/contact.html): Inquiry form, email, and registered office.
+- [Legal notice](https://providencenorth.one/legal.html): Controlling legal notice for company status, securities position, advertising services, and disclaimers.
+- [Extended summary](https://providencenorth.one/llms-full.txt): Longer plain-text summary for AI crawlers.
+
+## Contact
+
+- Email: inquiries@providencenorth.one
+- Registered office: Providence North LLC, 30 N Gould St, STE R, Sheridan, WY 82801, United States

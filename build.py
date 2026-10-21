@@ -1,14 +1,26 @@
 #!/usr/bin/env python3
 # Providence North LLC static site generator.
-# Emits the HTML pages from one template so the header/footer never drift.
+# Emits the HTML pages from one template so the header/footer never drift,
+# plus robots.txt, sitemap.xml, llms.txt, and llms-full.txt.
 # Brand tokens live in assets/css/main.css.
-import os, datetime, hashlib
+import os, hashlib, json
 
 DOMAIN = "providencenorth.one"
 BASE   = f"https://{DOMAIN}"
 EMAIL  = "inquiries@providencenorth.one"
 YEAR   = 2026
 OUT    = os.path.dirname(os.path.abspath(__file__))
+ORG_ID = f"{BASE}/#organization"
+SITE_ID = f"{BASE}/#website"
+# Bump when indexable page content changes. Date is UTC.
+SITEMAP_LASTMOD = "2026-10-20"
+# Homepage meta description, and the Organization description. The namesake
+# sentence is identity disambiguation only; it does not describe those entities.
+ORG_DESCRIPTION = (
+    "Providence North LLC is the Wyoming private holding company that operates "
+    "The Faithful Business and The Science of Wellness. Not a fund, broker-dealer, "
+    "or investment adviser. Not a Florida D&B entity, California nursing homes, or Tennessee townhomes."
+)
 
 # Cache-busting stamp: the stylesheet URL changes whenever the CSS changes, so a
 # returning visitor never gets a stale stylesheet after a deploy.
@@ -48,22 +60,109 @@ def feat(icon, title, body):
     return (f'<div class="feat">{IC[icon]}<div><div class="ft">{title}</div>'
             f'<div class="fb">{body}</div></div></div>')
 
-def head(page_title, desc, canonical, page_css=""):
+def html_text(s):
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+def html_attr(s):
+    return html_text(s).replace('"', "&quot;")
+
+def canonical_url(fname):
+    if fname == "index.html":
+        return f"{BASE}/"
+    return f"{BASE}/{fname}"
+
+def nav_href(slug):
+    return "/" if slug == "index.html" else f"/{slug}"
+
+def schema_graph(fname, title, desc):
+    url = canonical_url(fname)
+    org = {
+        "@type": "Organization",
+        "@id": ORG_ID,
+        "name": "Providence North LLC",
+        "legalName": "Providence North LLC",
+        "url": BASE,
+        "description": ORG_DESCRIPTION,
+        "logo": f"{BASE}/assets/img/providence-north-logo.png",
+        "email": EMAIL,
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "30 N Gould St, STE R",
+            "addressLocality": "Sheridan",
+            "addressRegion": "WY",
+            "postalCode": "82801",
+            "addressCountry": "US",
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Partner inquiries",
+            "email": EMAIL,
+            "url": f"{BASE}/contact.html",
+        },
+        "subOrganization": [
+            {
+                "@type": "Organization",
+                "name": "The Faithful Business",
+                "url": "https://www.thefaithfulbusiness.com",
+            },
+            {
+                "@type": "Organization",
+                "name": "The Science of Wellness",
+            },
+        ],
+    }
+    graph = [org]
+    if fname == "index.html":
+        graph.append({
+            "@type": "WebSite",
+            "@id": SITE_ID,
+            "url": f"{BASE}/",
+            "name": "Providence North LLC",
+            "description": ORG_DESCRIPTION,
+            "publisher": {"@id": ORG_ID},
+            "inLanguage": "en",
+        })
+    page_type = "ContactPage" if fname == "contact.html" else "WebPage"
+    graph.append({
+        "@type": page_type,
+        "@id": f"{url}#webpage",
+        "name": title,
+        "description": desc,
+        "url": url,
+        "isPartOf": {"@id": SITE_ID},
+        "about": {"@id": ORG_ID},
+        "inLanguage": "en",
+    })
+    return json.dumps(
+        {"@context": "https://schema.org", "@graph": graph},
+        ensure_ascii=False,
+        separators=(",", ":"),
+    )
+
+def head(page_title, desc, fname, page_css="", robots=None):
+    url = canonical_url(fname)
+    robots_tag = f'<meta name="robots" content="{robots}">\n' if robots else ""
     return f'''<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{page_title}</title>
-<meta name="description" content="{desc}">
-<link rel="canonical" href="{BASE}/{canonical}">
+<title>{html_text(page_title)}</title>
+<meta name="description" content="{html_attr(desc)}">
+{robots_tag}<link rel="canonical" href="{url}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Providence North LLC">
-<meta property="og:title" content="{page_title}">
-<meta property="og:description" content="{desc}">
-<meta property="og:url" content="{BASE}/{canonical}">
+<meta property="og:title" content="{html_attr(page_title)}">
+<meta property="og:description" content="{html_attr(desc)}">
+<meta property="og:url" content="{url}">
 <meta property="og:image" content="{BASE}/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{html_attr(page_title)}">
+<meta name="twitter:description" content="{html_attr(desc)}">
+<meta name="twitter:image" content="{BASE}/og-image.jpg">
 <meta name="theme-color" content="#0D0C0A">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
@@ -71,17 +170,19 @@ def head(page_title, desc, canonical, page_css=""):
 <link rel="preload" href="/assets/fonts/bodoni-moda-latin-400_700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope-latin-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/main.css?v={CSS_V}">
-{page_css}<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Providence North LLC","url":"{BASE}","logo":"{BASE}/assets/img/providence-north-logo.png","email":"{EMAIL}","address":{{"@type":"PostalAddress","streetAddress":"30 N Gould St, STE R","addressLocality":"Sheridan","addressRegion":"WY","postalCode":"82801","addressCountry":"US"}},"subOrganization":[{{"@type":"Organization","name":"The Faithful Business","url":"https://www.thefaithfulbusiness.com"}},{{"@type":"Organization","name":"The Science of Wellness"}}]}}</script>
+{page_css}<script type="application/ld+json">{schema_graph(fname, page_title, desc)}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 '''
 
+def nav_link(slug, label, active):
+    current = ' aria-current="page"' if slug == active else ""
+    return f'<a href="{nav_href(slug)}"{current}>{label}</a>'
+
 def header(active):
-    links = "".join(
-        f'<a href="/{h}"{" aria-current=\"page\"" if h==active else ""}>{t}</a>' for h,t in NAV)
-    mlinks = "".join(
-        f'<a href="/{h}"{" aria-current=\"page\"" if h==active else ""}>{t}</a>' for h,t in NAV)
+    links = "".join(nav_link(h, t, active) for h, t in NAV)
+    mlinks = "".join(nav_link(h, t, active) for h, t in NAV)
     return f'''<header class="hdr">
   <div class="wrap hdr-in">
     <a class="brand" href="/" aria-label="Providence North LLC, home">
@@ -152,8 +253,8 @@ def footer():
 </body></html>
 '''
 
-def page(fname, title, desc, body, active, page_css="", extra_js=""):
-    html = head(title, desc, fname, page_css) + header(active) + body + footer()
+def page(fname, title, desc, body, active, page_css="", extra_js="", robots=None):
+    html = head(title, desc, fname, page_css, robots=robots) + header(active) + body + footer()
     open(os.path.join(OUT, fname), "w").write(html)
     return fname
 
@@ -299,7 +400,7 @@ cta_band = f'''<section class="sec">
 
 page("index.html",
      "Providence North LLC | Private holding company",
-     "Providence North LLC is a private Wyoming holding company operating The Faithful Business and The Science of Wellness.",
+     ORG_DESCRIPTION,
      hero+pillars+portfolio+governance_teaser+mission_band+cta_band, "index.html")
 
 # ================================================================ PORTFOLIO
@@ -569,7 +670,7 @@ contact_body = pagehead("Partner Inquiry","Speak with Providence North.",
 '''+FORM_JS
 
 page("contact.html","Partner Inquiry | Providence North LLC",
-  "Contact Providence North LLC. Registered office in Sheridan, Wyoming, United States.",
+  "Contact Providence North LLC at inquiries@providencenorth.one. Registered office in Sheridan, Wyoming, United States.",
   contact_body, "contact.html")
 
 # ================================================================ LEGAL
@@ -630,25 +731,166 @@ notfound = f'''<section class="page-head">
     <a class="btn btn-ghost" href="/contact.html">Contact us</a></div>
   </div>
 </section>'''
-page("404.html","Page not found | Providence North LLC","That page is not here.", notfound, "")
+page("404.html","Page not found | Providence North LLC","That page is not here.", notfound, "",
+     robots="noindex, follow")
 
 # ================================================================ static files
-open(os.path.join(OUT,"CNAME"),"w").write(DOMAIN+"\n")
-open(os.path.join(OUT,".nojekyll"),"w").write("")
-open(os.path.join(OUT,"robots.txt"),"w").write(
-f"""User-agent: *
+# Indexable HTML only. 404 is noindex and is omitted.
+INDEXABLE = [
+    ("index.html", "1.0"),
+    ("portfolio.html", "0.8"),
+    ("governance.html", "0.8"),
+    ("mission.html", "0.8"),
+    ("contact.html", "0.7"),
+    ("legal.html", "0.4"),
+]
+
+def sitemap_xml():
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    for fname, priority in INDEXABLE:
+        lines += [
+            "  <url>",
+            f"    <loc>{canonical_url(fname)}</loc>",
+            f"    <lastmod>{SITEMAP_LASTMOD}</lastmod>",
+            f"    <priority>{priority}</priority>",
+            "  </url>",
+        ]
+    lines.append("</urlset>")
+    return "\n".join(lines) + "\n"
+
+ROBOTS = f"""# Canonical host: {BASE}/
+# www.{DOMAIN} permanently redirects (301) to the apex.
+# One sitemap covers the site; do not submit a separate www sitemap.
+User-agent: *
 Allow: /
 
+# Plain-text summaries for AI crawlers (see https://llmstxt.org):
+# {BASE}/llms.txt
+# {BASE}/llms-full.txt
+
 Sitemap: {BASE}/sitemap.xml
-""")
-today=datetime.date(2026,9,17).isoformat()
-urls="".join(f"  <url><loc>{BASE}/{'' if p=='index.html' else p}</loc><lastmod>{today}</lastmod>"
-             f"<priority>{'1.0' if p=='index.html' else '0.8'}</priority></url>\n"
-             for p,_ in NAV if p!="contact.html")
-urls+=f"  <url><loc>{BASE}/contact.html</loc><lastmod>{today}</lastmod><priority>0.7</priority></url>\n"
-urls+=f"  <url><loc>{BASE}/legal.html</loc><lastmod>{today}</lastmod><priority>0.4</priority></url>\n"
-open(os.path.join(OUT,"sitemap.xml"),"w").write(
-  f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
+"""
+
+LLMS = f"""# Providence North LLC
+
+> {ORG_DESCRIPTION}
+
+Providence North LLC is a limited liability company registered in the State of Wyoming, United States. It is privately held by its member, member-funded, and has no outside investors and no public funding. It is a private holding company with two lines of business, operated under trade names: The Faithful Business and The Science of Wellness. Those lines of business are not separate legal entities, and they are not subsidiaries, funds, or investment vehicles.
+
+This website is published by that Wyoming company. Canonical host: {BASE}/ . www.{DOMAIN} permanently redirects (301) to the apex.
+
+## Lines of business
+
+- [The Faithful Business](https://www.thefaithfulbusiness.com): A network that connects Christians with businesses, founders, and professional advisers who share their convictions. Verification is limited to founder identity, active church membership, and document completeness. It does not verify a business’s financial merit. VC Corner is an advertising and listing service: founders publish a listing, and accredited investors subscribe to see it. The Law Connect is a directory where Christian attorneys publish a listing for their own practice. The Faithful Business is not a broker-dealer or an investment adviser. It does not effect securities transactions, hold customer funds or securities, or give investment advice. Listings are advertising by the issuing company.
+- The Science of Wellness: A digital broadcast brand that translates research on metabolic health, cellular ageing, and preventive medicine for a general audience. Documentary and short-form video are published on YouTube. This site does not publish a separate URL for The Science of Wellness. Its content is educational and is not medical advice.
+
+## What this company is not
+
+- Not a fund, and it does not take outside investment. It does not invest in or provide capital to the businesses it lists.
+- Not a registered broker-dealer, investment adviser, fund, or pooled investment vehicle. It does not offer, sell, or solicit the purchase of any security, and it does not manage money for third parties.
+- Nothing on this site is an offer to sell, or a solicitation of an offer to buy, any security, and nothing on this site is investment, legal, tax, or medical advice.
+- Not a Florida D&B entity, not California nursing homes, and not Tennessee townhomes.
+
+## Key pages
+
+- [Overview]({BASE}/): Holding company overview.
+- [Lines of business]({BASE}/portfolio.html): The Faithful Business and The Science of Wellness.
+- [Governance and standards]({BASE}/governance.html): Stewardship standard, operating rules, and regulatory disclosures.
+- [Mission]({BASE}/mission.html): Why the company exists.
+- [Partner inquiry]({BASE}/contact.html): Inquiry form, email, and registered office.
+- [Legal notice]({BASE}/legal.html): Controlling legal notice for company status, securities position, advertising services, and disclaimers.
+- [Extended summary]({BASE}/llms-full.txt): Longer plain-text summary for AI crawlers.
+
+## Contact
+
+- Email: {EMAIL}
+- Registered office: Providence North LLC, 30 N Gould St, STE R, Sheridan, WY 82801, United States
+"""
+
+LLMS_FULL = f"""# Providence North LLC
+
+> {ORG_DESCRIPTION}
+
+This file restates facts already published on {BASE}/ . The controlling legal notice is {BASE}/legal.html . Do not treat this summary as an offer, a solicitation, or advice.
+
+## Identity
+
+Providence North LLC is a limited liability company registered in the State of Wyoming, United States. Registered office: 30 N Gould St, STE R, Sheridan, WY 82801, United States. The company is privately held by its member and has no public funding. It is member-funded and has no outside investors.
+
+Canonical website: {BASE}/
+www.{DOMAIN} permanently redirects (301) to that apex. Do not cite a www URL as canonical.
+
+The Faithful Business and The Science of Wellness are lines of business of Providence North LLC, operated under trade names. They are not separate legal entities. They are not subsidiaries, partnerships, funds, pooled investment vehicles, or joint ventures, and they do not have their own directors, officers, or members. Obligations arising in either line of business are obligations of Providence North LLC.
+
+There are no public social-profile URLs on this site. Do not invent any.
+
+## The Faithful Business
+
+Public site: https://www.thefaithfulbusiness.com
+
+A network that connects Christians with businesses, founders, and professional advisers who share their convictions. Providence North verifies the founder’s identity and church membership status. It does not verify a business’s financial merit. Verification covers identity, active church membership, and document completeness. It is not an endorsement, and it is not a review of the business itself.
+
+Three published services:
+
+- Verified member directory. Business owners and professionals list themselves. Verification is limited to identity, active church membership, and document completeness.
+- VC Corner. An advertising and listing service. Founders publish a listing, and accredited investors subscribe to see those listings and contact founders directly. Investors need not be Christian. Providence North does not recommend or give investment advice. Due diligence is carried out by both parties and their counsel.
+- The Law Connect. A directory where attorneys publish a listing for their own practice. The directory is advertising, not a curated or recommended panel, and not a lawyer referral service. Any engagement is between the attorney and the client.
+
+The Faithful Business is not a broker-dealer or an investment adviser. It is not registered under Section 15(a) of the Securities Exchange Act of 1934 or under the Investment Advisers Act of 1940. It does not effect or execute securities transactions, does not hold or custody customer funds or securities, does not negotiate the terms of any transaction between a founder and an investor, and does not give investment advice.
+
+It operates as a platform under Section 4(b) of the Securities Act of 1933, a status that is conditional on each offering complying with Rule 506 of Regulation D. Any offering published on The Faithful Business is made by the issuing company, not by Providence North LLC. Listings are advertising only. Compliance with Rule 506, including verification that every purchaser is an accredited investor, remains the responsibility of the issuing company.
+
+## The Science of Wellness
+
+No separate official URL is published on this site. Do not invent one.
+
+A digital broadcast brand that translates research on metabolic health, cellular ageing, and preventive medicine into plain language for a general audience. Coverage includes peer-reviewed work on metabolic health, cellular repair, and healthy ageing. Long-form documentaries and short-form video are published on YouTube. This site does not name a channel URL.
+
+Content is educational and is not medical advice, diagnosis, or treatment. It is not a substitute for care from a qualified physician.
+
+## What Providence North is not
+
+- Not a fund. It does not take outside investment, does not invest in or provide capital to the businesses it lists, and provides capital to no one.
+- Not a registered broker-dealer, investment adviser, fund, or pooled investment vehicle.
+- It does not offer, sell, or solicit the purchase of any security, and it does not manage money for third parties.
+- Nothing on providencenorth.one is an offer to sell, or a solicitation of an offer to buy, any security.
+- Nothing on this site is investment, legal, tax, accounting, or medical advice.
+- Not a Florida D&B entity.
+- Not California nursing homes.
+- Not Tennessee townhomes.
+
+## How the company describes its standard
+
+Providence North states three stewardship pillars: patient stewardship, governance, and purpose and flourishing. It describes itself as a listing and connection service: it does not intermediate, does not negotiate on anyone’s behalf, and is not a party to any deal. Operating rules published on the site include saying what is true, written agreements, clean books, no outside capital, and identity-and-membership verification that is not an endorsement.
+
+## Contact
+
+- Partner inquiries: {EMAIL}
+- The contact form opens the visitor’s own email application. Nothing is transmitted through the website.
+- Registered office: Providence North LLC, 30 N Gould St, STE R, Sheridan, WY 82801, United States. Mail sent to the registered office is received and forwarded.
+- The company states that it does not respond to investment solicitations, and that it does not give investment, legal, tax, or medical advice.
+
+## Key URLs
+
+- {BASE}/
+- {BASE}/portfolio.html
+- {BASE}/governance.html
+- {BASE}/mission.html
+- {BASE}/contact.html
+- {BASE}/legal.html
+- {BASE}/llms.txt
+- https://www.thefaithfulbusiness.com
+"""
+
+open(os.path.join(OUT,"CNAME"),"w").write(DOMAIN+"\n")
+open(os.path.join(OUT,".nojekyll"),"w").write("")
+open(os.path.join(OUT,"robots.txt"),"w").write(ROBOTS)
+open(os.path.join(OUT,"sitemap.xml"),"w").write(sitemap_xml())
+open(os.path.join(OUT,"llms.txt"),"w").write(LLMS)
+open(os.path.join(OUT,"llms-full.txt"),"w").write(LLMS_FULL)
 
 open(os.path.join(OUT,"assets/js/main.js"),"w").write('''(function(){
   var b=document.getElementById('burger'), m=document.getElementById('mnav');
@@ -660,4 +902,111 @@ open(os.path.join(OUT,"assets/js/main.js"),"w").write('''(function(){
   m.addEventListener('click',function(e){ if(e.target.tagName==='A'){ m.classList.remove('open'); b.setAttribute('aria-expanded','false'); }});
 })();
 ''')
+
+def verify_build():
+    import xml.etree.ElementTree as ET
+
+    def read(name):
+        with open(os.path.join(OUT, name), encoding="utf-8") as fh:
+            return fh.read()
+
+    def graph(html):
+        raw = html.split('<script type="application/ld+json">', 1)[1].split("</script>", 1)[0]
+        return json.loads(raw)
+
+    idx = read("index.html")
+    assert 'rel="canonical" href="https://providencenorth.one/"' in idx
+    assert 'property="og:url" content="https://providencenorth.one/"' in idx
+    assert "providencenorth.one/index.html" not in idx
+    assert 'href="/index.html"' not in idx
+    assert 'content="https://providencenorth.one/og-image.jpg"' in idx
+    assert os.path.isfile(os.path.join(OUT, "og-image.jpg"))
+    home = graph(idx)
+    assert [n["@type"] for n in home["@graph"]] == ["Organization", "WebSite", "WebPage"]
+    org = home["@graph"][0]
+    assert org["@id"] == ORG_ID
+    assert org["legalName"] == "Providence North LLC"
+    assert org["url"] == BASE
+    assert org["description"] == ORG_DESCRIPTION
+    assert "sameAs" not in org
+    assert org["address"]["streetAddress"] == "30 N Gould St, STE R"
+    assert org["address"]["addressRegion"] == "WY"
+    assert org["subOrganization"][0]["url"] == "https://www.thefaithfulbusiness.com"
+    assert "url" not in org["subOrganization"][1]
+    assert org["subOrganization"][1]["name"] == "The Science of Wellness"
+    site = home["@graph"][1]
+    assert site["@id"] == SITE_ID
+    assert site["url"] == f"{BASE}/"
+    assert site["publisher"] == {"@id": ORG_ID}
+    assert "potentialAction" not in site
+    assert "SearchAction" not in idx
+    page_node = home["@graph"][2]
+    assert page_node["url"] == f"{BASE}/"
+    assert page_node["isPartOf"] == {"@id": SITE_ID}
+    assert page_node["about"] == {"@id": ORG_ID}
+    assert page_node["description"] == ORG_DESCRIPTION
+
+    for fname, _prio in INDEXABLE:
+        if fname == "index.html":
+            continue
+        html = read(fname)
+        url = canonical_url(fname)
+        assert f'rel="canonical" href="{url}"' in html
+        assert f'property="og:url" content="{url}"' in html
+        assert 'href="/index.html"' not in html
+        data = graph(html)
+        types = [n["@type"] for n in data["@graph"]]
+        assert "WebSite" not in types
+        assert data["@graph"][0]["legalName"] == "Providence North LLC"
+        assert data["@graph"][0]["url"] == BASE
+        assert data["@graph"][-1]["url"] == url
+        assert data["@graph"][-1]["name"]
+        assert data["@graph"][-1]["description"]
+        assert 'lang="en"' in html
+
+    contact = graph(read("contact.html"))
+    assert contact["@graph"][-1]["@type"] == "ContactPage"
+    assert contact["@graph"][0]["contactPoint"]["email"] == EMAIL
+
+    nf = read("404.html")
+    assert 'name="robots" content="noindex, follow"' in nf
+    assert 'href="/index.html"' not in nf
+
+    sm = read("sitemap.xml")
+    ET.fromstring(sm)
+    assert sm.count("<loc>") == len(INDEXABLE)
+    assert f"<loc>{BASE}/</loc>" in sm
+    assert "index.html" not in sm
+    assert "404" not in sm
+    assert sm.count(f"<lastmod>{SITEMAP_LASTMOD}</lastmod>") == len(INDEXABLE)
+
+    robots = read("robots.txt")
+    assert "Allow: /" in robots
+    assert f"Sitemap: {BASE}/sitemap.xml" in robots
+    assert f"{BASE}/llms.txt" in robots
+
+    llms = read("llms.txt")
+    for needle in (
+        "Wyoming",
+        "The Faithful Business",
+        "The Science of Wellness",
+        "not a fund",
+        "Florida D&B entity",
+        "California nursing homes",
+        "Tennessee townhomes",
+        "not medical advice",
+        EMAIL,
+        "30 N Gould St, STE R",
+        "https://www.thefaithfulbusiness.com",
+        f"{BASE}/",
+    ):
+        assert needle.lower() in llms.lower(), needle
+    assert "youtube.com" not in llms.lower()
+    assert "linkedin.com" not in llms.lower()
+    full = read("llms-full.txt")
+    assert "Section 4(b)" in full
+    assert "not medical advice" in full
+    assert "Florida D&B entity" in full
+
+verify_build()
 print("pages:", ", ".join(sorted(f for f in os.listdir(OUT) if f.endswith('.html'))))
