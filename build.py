@@ -147,6 +147,8 @@ def head(page_title, desc, fname, page_css="", robots=None):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google-site-verification" content="dtW0tUk5ViRbOVb6fxeZJgBTp0PClflc0gEktJw7B6U" />
+<meta name="msvalidate.01" content="3877DCE52AD8A1F023DF705CC918E046" />
 <title>{html_text(page_title)}</title>
 <meta name="description" content="{html_attr(desc)}">
 {robots_tag}<link rel="canonical" href="{url}">
